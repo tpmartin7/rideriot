@@ -1,0 +1,2 @@
+class CycleRoutesController < ApplicationController
+end
