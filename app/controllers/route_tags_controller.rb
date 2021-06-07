@@ -1,0 +1,2 @@
+class RouteTagsController < ApplicationController
+end
