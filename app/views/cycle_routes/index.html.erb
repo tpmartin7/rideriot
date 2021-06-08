@@ -1,5 +1,9 @@
 <h1>Routes</h1>
 
+<% @cycle_routes.each do |route| %>
+  <%= route.name %>
+<% end %>
+
 <div class="container mb-5">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
