@@ -1,6 +1,6 @@
 class CycleRoute < ApplicationRecord
   belongs_to :user
-  has_many :attempts
+  has_many :attempts, dependent: :destroy
   has_many :reviews
   has_many :route_tags
   has_many :tags, through: :route_tags
