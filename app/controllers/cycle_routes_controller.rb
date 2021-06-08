@@ -6,6 +6,6 @@ class CycleRoutesController < ApplicationController
   end
 
   def show
-
+    @cycle_route = CycleRoute.find(params[:id])
   end
 end
