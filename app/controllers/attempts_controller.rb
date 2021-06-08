@@ -2,12 +2,16 @@ class AttemptsController < ApplicationController
   def show
     @attempt = Attempt.find(params[:id])
     @cycle_route = @attempt.cycle_route
-
-    @markers = [
+    
+    points =[]
+    points << Geocoder.search(@cycle_route.start_point).first.coordinates
+    points << Geocoder.search(@cycle_route.end_point).first.coordinates
+  
+    @markers = points.map do |coordinates|
       {
-        lat: @cycle_route.latitude,
-        lng: @cycle_route.longitude
+        lat: coordinates.first,
+        lng: coordinates.second
       }
-    ]
+    end
   end
 end
