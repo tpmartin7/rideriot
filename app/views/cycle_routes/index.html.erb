@@ -3,8 +3,7 @@
 <% if @cycle_routes.empty? %>
   <h2>No routes found in search area</h2>
 <% end %>
-
-<% @cycle_routes.each_with_index do |cycle_route, i| %>
+<% @cycle_routes.each do |cycle_route| %>
   <div class="container mb-5">
     <!-- These IDS will not be unique in a loop -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -16,11 +15,11 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%=cl_image_tag (SEED_IMAGES[i]) %>
+          <%=cl_image_tag (@seed_images[cycle_route.name]) %>
           <!-- <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="d-block w-100" alt="..."> -->
         </div>
         <div class="carousel-item">
-          <%=cl_image_tag (SEED_IMAGES[i]) %>
+          <%=cl_image_tag (@seed_images[cycle_route.name]) %>
           <!-- <img src="https://images.unsplash.com/photo-1541625810516-44f1ce894bcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="d-block w-100" alt="..."> -->
         </div>
       </div>
