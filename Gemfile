@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'cloudinary', '~> 1.16.0'
 gem 'mapbox-rails'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
