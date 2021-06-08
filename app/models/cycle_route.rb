@@ -6,4 +6,5 @@ class CycleRoute < ApplicationRecord
   has_many :tags, through: :route_tags
   geocoded_by :start_point
   after_validation :geocode, if: :will_save_change_to_start_point?
+  has_many_attached :photos
 end
