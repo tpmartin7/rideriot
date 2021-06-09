@@ -1,1 +1,14 @@
-<%= link_to "Start Route", cycle_route_attempt_path(@cycle_route), class: 'btn btn-primary' %>
+<div class="container">
+  <div style="text-align: center;">
+    <h2> <%= @cycle_route.name %> </h1>
+    <%=cl_image_tag (@seed_images[@cycle_route.name]) %>
+    <h3>Distance: 10km</h3>
+    <h3>Category: Scenic</h3>
+    <p>This is a fun little trek around the park.</p>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "Start Route", cycle_route_attempts_path(@cycle_route), method: :post, class: 'btn btn-success' %>
+    <span style="width:100px;"></span>
+    <%= link_to "Choose Another", cycle_routes_path(address_form:{address: params.dig(:address_form,:address)}), class: 'btn btn-primary' %>
+  </div>
+</div>

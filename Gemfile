@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 gem 'has_friendship'
 gem 'cloudinary', '~> 1.16.0'
+gem 'mapbox-gl-rails'
 gem 'mapbox-rails'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
