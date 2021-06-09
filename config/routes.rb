@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :attempts, only: [:create]
   end
   resources :attempts, only: [:show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users, only: [:show]
 end

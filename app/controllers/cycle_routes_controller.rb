@@ -1,4 +1,6 @@
 class CycleRoutesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     @seed_images = seed_images
     @cycle_routes = CycleRoute.near(params[:address_form][:address], 5)
