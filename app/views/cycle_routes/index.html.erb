@@ -5,26 +5,26 @@
 <% end %>
 <% @cycle_routes.each do |cycle_route| %>
   <a class="card-link" href="<%= cycle_route_path(cycle_route) %>">
-  <div class="container mb-5">
-    <!-- These IDS will not be unique in a loop -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <!-- if photos attached, add to carousel. -->
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%=cl_image_tag (@seed_images[cycle_route.name]) %>
+    <div class="container mb-5">
+      <!-- These IDS will not be unique in a loop -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <!-- if photos attached, add to carousel. -->
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%=cl_image_tag (@seed_images[cycle_route.name]) %>
+          </div>
+          <div class="carousel-item">
+            <%=cl_image_tag (@seed_images[cycle_route.name]) %>
+          </div>
         </div>
-        <div class="carousel-item">
-          <%=cl_image_tag (@seed_images[cycle_route.name]) %>
-        </div>
+          <h2><%= cycle_route.name %></h2>
+          <p>Route description</p>
       </div>
-        <h2><%= cycle_route.name %></h2>
-        <p>Route description</p>
     </div>
-  </div>
   </a>
 <% end %>
