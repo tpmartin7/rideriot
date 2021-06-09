@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="cards">
+    <h2>Stats</h2>
+    <ul>
+      <li>Distance cycled: <span class="points"><%= @user.distance_cycled %>km</span></li>
+      <li>Cycle Routes completed: <span class="points"><%= @user.routes_completed %></span></li>
+    </ul>
+  </div>
+  <div class="cards">
+    <h2>Achievements</h2>
+    <div class="achievement-list">
+      <ul>
+        <li>💎 collected: <span class="points">45</span></li>
+        <li>🕍 seen: <span class="points">12</span></li>
+        <li>🚌 collided with: <span class="points">3</span></li>
+        <li>💰 total: <span class="points">1286</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="cards" id="leaderboard">
+    <h2>Friend's Leaderboard</h2>
+    <div class="row">
+      <div class="col">
+        1. avatar
+      </div>
+      <div class="col">
+        points
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        2. avatar
+      </div>
+      <div class="col">
+        points
+      </div>
+    </div>
+  </div>
+</div>
