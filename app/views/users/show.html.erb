@@ -65,10 +65,10 @@
     <% @iterator = 1 %>
     <% @sorted_friends.each do |friend| %>
       <div class="row">
-        <div class="col">
+        <div class="col friend-row">
           <strong><%= @iterator %>. </strong><%= friend.name %>
         </div>
-        <div class="col">
+        <div class="col friend-row">
            is on <span class="points"><%= friend.points %>  </span>points
         </div>
       </div>
