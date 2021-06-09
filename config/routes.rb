@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   resources :attempts, only: [:show]
   resources :users, only: [:show]
+  get "add_friend", to: 'friendships#create'
+  delete "delete_friend", to: 'friendships#destroy'
 end

@@ -13,27 +13,67 @@
         <li>💎 collected: <span class="points">45</span></li>
         <li>🕍 seen: <span class="points">12</span></li>
         <li>🚌 collided with: <span class="points">3</span></li>
-        <li>💰 total: <span class="points">1286</span></li>
+        <li>💰 total points: <span class="points"><%= @user.points %></span></li>
       </ul>
     </div>
   </div>
   <div class="cards" id="leaderboard">
     <h2>Friend's Leaderboard</h2>
-    <div class="row">
-      <div class="col">
-        1. avatar
-      </div>
-      <div class="col">
-        points
+
+
+    <%= image_tag "plus.png", alt: "alttext", class: "add-modal-button", data: { toggle: "modal", target: "#AddModal" } %>
+    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add your friend</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for :friend_form, url: add_friend_path, method: :get do |f| %>
+              <%= f.input :user_id, collection: User.pluck(:email, :id) %>
+              <%= f.submit "Add" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        2. avatar
-      </div>
-      <div class="col">
-        points
+
+
+    <%= image_tag "remove.png", alt: "alttext", class: "delete-modal-button", data: { toggle: "modal", target: "#DeleteModal" }  %>
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete a friend</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for :friend_form, url: delete_friend_path, method: :delete do |f| %>
+              <%= f.input :user_id, collection: User.pluck(:email, :id) %>
+              <%= f.submit "Delete" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
+
+    <% @iterator = 1 %>
+    <% @sorted_friends.each do |friend| %>
+      <div class="row">
+        <div class="col friend-row">
+          <strong><%= @iterator %>. </strong><%= friend.name %>
+        </div>
+        <div class="col friend-row">
+           is on <span class="points"><%= friend.points %>  </span>points
+        </div>
+      </div>
+      <% @iterator += 1 %>
+    <% end %>
+
   </div>
 </div>

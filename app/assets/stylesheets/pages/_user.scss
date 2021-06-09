@@ -1,0 +1,34 @@
+#leaderboard {
+  height: 200px;
+  position: relative;
+}
+
+.points {
+  color: #ED3A50;
+}
+
+.achievement-list {
+  text-align: center;
+}
+
+// .delete-button {
+//   height: 17px;
+// }
+
+// .add-button {
+//   border-radius: 50% !important;
+// }
+
+.add-modal-button {
+  position: absolute;
+  bottom: 13px;
+  right: 39px;
+  height: 20px;
+}
+
+.delete-modal-button {
+  position: absolute;
+  bottom: 13px;
+  right: 13px;
+  height: 20px;
+}
