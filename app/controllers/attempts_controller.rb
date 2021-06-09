@@ -1,12 +1,20 @@
 class AttemptsController < ApplicationController
+  def create
+    @attempt = Attempt.new
+    @attempt.user = current_user
+    @attempt.cycle_route = CycleRoute.find(params[:cycle_route_id])
+    @attempt.save
+    redirect_to attempt_path(@attempt)
+  end
+
   def show
     @attempt = Attempt.find(params[:id])
     @cycle_route = @attempt.cycle_route
-    
+
     points =[]
     points << Geocoder.search(@cycle_route.start_point).first.coordinates
     points << Geocoder.search(@cycle_route.end_point).first.coordinates
-  
+
     @markers = points.map do |coordinates|
       {
         lat: coordinates.first,
