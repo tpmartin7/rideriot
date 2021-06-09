@@ -3,7 +3,7 @@
     <%= image_tag "bicycle.png", class: "icon" %>
     <% end %>
 
-  <%= link_to current_user ? edit_user_registration_path : new_user_session_path, class: "navbar-home rel" do %>
+  <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
     <%= image_tag "man.png", class: "avatar user" %>
   <% end %>
 
