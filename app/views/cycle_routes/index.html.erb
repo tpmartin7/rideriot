@@ -4,7 +4,7 @@
   <h2>No routes found in search area</h2>
 <% end %>
 <% @cycle_routes.each do |cycle_route| %>
-  <a class="card-link" href="<%= cycle_route_path(cycle_route) %>">
+  <a class="card-link" href="<%= cycle_route_path(cycle_route, address_form:{address: params.dig(:address_form,:address)}) %>">
     <div class="container mb-5">
       <!-- These IDS will not be unique in a loop -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
