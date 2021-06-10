@@ -8,6 +8,7 @@ class AttemptsController < ApplicationController
   end
 
   def show
+    attempt_show
     @attempt = Attempt.find(params[:id])
     @cycle_route = @attempt.cycle_route
 
@@ -22,4 +23,10 @@ class AttemptsController < ApplicationController
       }
     end
   end
+
+  private 
+  def attempt_show
+    @disable_nav = true
+  end
+
 end
