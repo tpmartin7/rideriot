@@ -17,7 +17,8 @@
     <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
 
-    <%= link_to "log out", destroy_user_session_path, method: 'delete' %>
     <%= yield %>
+<!--     <div class="nav-container-space">
+    </div> -->
   </body>
 </html>

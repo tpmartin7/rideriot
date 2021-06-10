@@ -35,6 +35,14 @@ class CycleRoutesController < ApplicationController
   def show
     @seed_images = seed_images
     @cycle_route = CycleRoute.find(params[:id])
+    @reviews = Review.where(cycle_route: @cycle_route.id)
+
+    if @reviews.present?
+      @summed_ratings = @reviews.sum(&:rating)
+      @route_rating = @summed_ratings.to_f / @reviews.length
+      @rating = @route_rating.round
+      @blank_stars = 5 - @rating
+    end
   end
 
   def seed_images
