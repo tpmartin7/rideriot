@@ -1,14 +1,65 @@
 <div class="container">
-  <div style="text-align: center;">
-    <h2> <%= @cycle_route.name %> </h1>
-    <%=cl_image_tag (@seed_images[@cycle_route.name]) %>
-    <h3>Distance: 10km</h3>
-    <h3>Category: Scenic</h3>
-    <p>This is a fun little trek around the park.</p>
+  <div class="cards" style="text-align: center;">
+    <div class="container show-photo" style="background-image: url('http://res.cloudinary.com/duae8ljpg/image/upload/v1/rideriot/regCanal_jj3i9r.png'); height: 200px;">
+      <div class="name-banner">
+        <h2 class=""> <%= @cycle_route.name %> </h1>
+      </div>
+    </div>
+      <div class="d-flex justify-content-between p-3">
+        <div class="col-xs-8">
+          <h5>Distance: <%= @cycle_route.total_distance %> km</h5>
+        </div>
+        <div class="col-xs-4">
+          <% if @reviews.present? %>
+            <div id="rating-container">
+              <div class="row">
+                <div class="col">
+                  <% @rating.times do |f| %>
+                    <%= image_tag "star.png", class: "star-sml" %>
+                  <% end %>
+                  <% @blank_stars.times do |f| %>
+                    <%= image_tag "blank-star.png", class: "star-sml" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    <!-- TODO - add tags in pill form, make our reddish color -->
+    <div class="container">
+      <p><%= @cycle_route.description %></p>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <%= link_to "Start Route", cycle_route_attempts_path(@cycle_route), method: :post, class: 'btn btn-primary mr-2 cust-width' %>
+
+        <%= link_to "Back", cycle_routes_path(address_form:{address: params.dig(:address_form,:address)}), class: 'btn btn-outline-primary ml-2 cust-width' %>
+      </div>
+    </div>
   </div>
-  <div class="row justify-content-center">
-    <%= link_to "Start Route", cycle_route_attempts_path(@cycle_route), method: :post, class: 'btn btn-success' %>
-    <span style="width:100px;"></span>
-    <%= link_to "Choose Another", cycle_routes_path(address_form:{address: params.dig(:address_form,:address)}), class: 'btn btn-primary' %>
-  </div>
+
+
+  <% if @reviews.present? %>
+    <div class="cards">
+      <h4 class="reviews-header">Reviews</h4>
+      <% @reviews.each do |review| %>
+        <div class="d-flex justify-content-between pl-2 pr-2">
+          <div class="col-xs-8">
+            <p><%= review.user.name %> says: "<%= review.comment %>"</p>
+          </div>
+          <div class="col-xs-4">
+              <% review.rating.times do |f| %>
+                <%= image_tag "star.png", class: "star-sml" %>
+              <% end %>
+              <% @num = 5 - review.rating %>
+              <% @num.times do |f| %>
+                <%= image_tag "blank-star.png", class: "star-sml" %>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
