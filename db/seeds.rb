@@ -30,7 +30,7 @@ cycle_routes = {
     end_point: "East Village, Stratford, London",
     map_image: "rideriot/vicMap_ndt8xg.png",
     total_distance: 2.5,
-    desciption: "Winner of the Green Flag award for the best UK park for the previous two years. The internal roadway is wide enough for people to cycle, walk and jog in the same space.",
+    description: "Winner of the Green Flag award for the best UK park for the previous two years. The internal roadway is wide enough for people to cycle, walk and jog in the same space.",
     user: admin
   ),
   regents: CycleRoute.new(
@@ -39,7 +39,7 @@ cycle_routes = {
     end_point: "139 Graham St, London N1 8LB",
     map_image: "rideriot/regentsMap_zrldo1.png",
     total_distance: 1.2,
-    desciption: "One of London’s best-kept secrets. Take in scenic views and miss out the congestion, crowds and noise.",
+    description: "One of London’s best-kept secrets. Take in scenic views and miss out the congestion, crowds and noise.",
     user: admin
   ),
   cs1: CycleRoute.new(
@@ -48,7 +48,7 @@ cycle_routes = {
     end_point: "Finsbury Circus, London EC2M 7DT",
     map_image: "rideriot/cs1Map_lqarfs.png",
     total_distance: 1.5,
-    desciption: "London's first Cycle Superhighway is a great way to explore London on roads you probably won't have used on a bike before.",
+    description: "London's first Cycle Superhighway is a great way to explore London on roads you probably won't have used on a bike before.",
     user: admin
   ),
   tower: CycleRoute.new(
@@ -57,7 +57,7 @@ cycle_routes = {
     end_point: "Tower of London, London EC3N 4AB",
     map_image: "rideriot/towerMap_qsrsdt.png",
     total_distance: 1.8,
-    desciption: "The Tower of London has played a prominent role in English history, and is one of the country's most popular tourist attractions. ",
+    description: "The Tower of London has played a prominent role in English history, and is one of the country's most popular tourist attractions. ",
     user: admin
   )
 }
