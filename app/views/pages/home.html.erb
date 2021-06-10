@@ -4,5 +4,8 @@
 
 <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
   <%= f.input :address %>
+  <% @tags.each do |tag| %>
+    <%= f.input tag.name, as: :boolean %>
+  <% end %>
   <%= f.submit %>
 <% end %>
