@@ -29,6 +29,8 @@ cycle_routes = {
     start_point: "Goodrich House, Sewardstone Road, London",
     end_point: "East Village, Stratford, London",
     map_image: "rideriot/vicMap_ndt8xg.png",
+    total_distance: 2.5,
+    desciption: "x",
     user: admin
   ),
   regents: CycleRoute.new(
@@ -36,6 +38,8 @@ cycle_routes = {
     start_point: "283a Kingsland Rd, London E2 8AS",
     end_point: "139 Graham St, London N1 8LB",
     map_image: "rideriot/regentsMap_zrldo1.png",
+    total_distance: 1.2,
+    desciption: "x",
     user: admin
   ),
   cs1: CycleRoute.new(
@@ -43,6 +47,8 @@ cycle_routes = {
     start_point: "16 Whitmore Rd, London N1 5QA",
     end_point: "Finsbury Circus, London EC2M 7DT",
     map_image: "rideriot/cs1Map_lqarfs.png",
+    total_distance: 1.5,
+    desciption: "x",
     user: admin
   ),
   tower: CycleRoute.new(
@@ -50,6 +56,8 @@ cycle_routes = {
     start_point: "119 Shoreditch High St, London E1 6JN",
     end_point: "Tower of London, London EC3N 4AB",
     map_image: "rideriot/towerMap_qsrsdt.png",
+    total_distance: 1.8,
+    desciption: "x",
     user: admin
   )
 }
