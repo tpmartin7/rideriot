@@ -10,9 +10,9 @@
 admin = User.create(email: 'admin@rideriot.club', password: '123456') unless admin = User.find_by_email('admin@rideriot.club')
 
   # Remember you shouldnt destroy in the seed file in normal circumstances.
-Tag.destroy_all
-CycleRoute.destroy_all
 RouteTag.destroy_all
+CycleRoute.destroy_all
+Tag.destroy_all
   # Remember you shouldnt destroy in the seed file in normal circumstances.
 tag_names = %w[Scenic Quiet Historic Challenging]
 tags = []
