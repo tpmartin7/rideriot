@@ -1,3 +1,31 @@
-<div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%=  @markers.to_json %>"></div>
+<div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%=  @markers.to_json %>">
+  <div class="container">
+        <h1 class="text-center">Finish</h1>
+        <div class="fixed-bottom">
+          <button id="map-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Finish</button> 
+        </div>
+  </div>
+</div>
   <div id="instructions"></div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Well Done!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5> Distance Cycled: 12km 🕍</h5>
+        <h5> Points Earned: 135 💎</h5>
+        <h5> Trophies Won: 2 💰</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal" class="btn btn-primary">Collect Your Rewards</button>
+      </div>
+    </div>
+  </div>
+</div>
   

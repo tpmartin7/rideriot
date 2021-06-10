@@ -1,7 +1,7 @@
 <h1>Routes</h1>
 
 <% if @cycle_routes.empty? %>
-  <h2>No routes found in search area</h2>
+  <h2>No routes found matching criteria</h2>
 <% end %>
 <% @cycle_routes.each do |cycle_route| %>
   <a class="card-link" href="<%= cycle_route_path(cycle_route, address_form:{address: params.dig(:address_form,:address)}) %>">
