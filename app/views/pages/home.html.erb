@@ -1,4 +1,4 @@
- 
+
 <div class="container" id="home-main">
   <div class="row col-6">
       <div class="container" id="hero-text">
@@ -16,13 +16,13 @@
           <% @tags.each do |tag| %>
             <%= f.input tag.name, as: :boolean %>
           <% end %>
-          <%= f.submit "Find Routes", class: "btn" %>
+          <%= f.submit "Find Routes", class: "btn btn-primary" %>
       <% end %>
 
       <div class="container" id="home-image-iphone">
           <%= image_tag "iphone.svg", height: 75, width: 75 %>
       </div>
-      <div class="container" id="home-avatar"> 
+      <div class="container" id="home-avatar">
         <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
           <%= image_tag "man.png", class: "avatar user" %>
         <% end %>
