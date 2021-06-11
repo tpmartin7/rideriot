@@ -36,6 +36,7 @@
         <%= link_to "Start Route", cycle_route_attempts_path(@cycle_route), method: :post, class: 'btn btn-primary mr-2 cust-width' %>
 
         <%= link_to "Back", cycle_routes_path(address_form:{address: params.dig(:address_form,:address)}), class: 'btn btn-outline-primary ml-2 cust-width' %>
+        <% raise %>
       </div>
     </div>
   </div>
@@ -49,7 +50,7 @@
           <div class="col-xs-8">
             <p class="text-left pl-2">"<%= review.comment %>"</p>
           </div>
-          <div class="col-xs-4" style="width: 165px">
+          <div class="col-xs-4" style="width: 190px">
               <% review.rating.times do |f| %>
                 <%= image_tag "star.png", class: "star-sml" %>
               <% end %>
