@@ -30,6 +30,7 @@ class CycleRoutesController < ApplicationController
       end
       (selected_tag_names - route_tag_names).empty?
     end
+
   end
 
   def show
