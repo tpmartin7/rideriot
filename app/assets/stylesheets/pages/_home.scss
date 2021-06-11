@@ -1,1 +1,46 @@
-// Specific CSS for your home-page
+#home-main {
+  margin-top: 100px;
+}
+
+#hero-title {
+  color: #5857D5;
+}
+
+#hero-text {
+  color: #5857D5;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  margin-top: -65px;
+  margin-right: -27px;
+}
+
+#home-image-bicycle {
+  position: relative;
+  margin-left: 108px;
+  z-index: 0;
+}
+
+#home-image-iphone {
+  position: relative;
+  margin-top: -99px;
+  margin-left: 216px;
+  z-index: 1;
+}
+
+#home-avatar {
+  position: relative;
+  z-index: 3;
+  margin-left: 160px;
+  padding-top: 409px;
+
+}
+
+.simple_form.address_form {
+  position: relative;
+  z-index: 4;
+  margin-left: 114px !important;
+  margin-bottom: -103px;
+  padding-top: 30px;
+}
+

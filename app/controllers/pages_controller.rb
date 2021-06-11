@@ -3,6 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @tags = Tag.all
+    attempt_show
+  end
+
+  private 
+  def attempt_show
+    @disable_nav = true
   end
 
 end
