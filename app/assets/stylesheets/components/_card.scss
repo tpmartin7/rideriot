@@ -19,9 +19,10 @@
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  color: $primary;
+  // color: $primary;
   // padding: 10px;
-  margin-bottom: 25px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   border: 2px solid $primary;
   .btn-outline-primary {
     color: $primary;
@@ -29,6 +30,6 @@
 }
 
 .name-banner {
-  background-color: $primary;
+  background-color: rgba(88, 87, 213, 0.5);
   color: white;
 }
