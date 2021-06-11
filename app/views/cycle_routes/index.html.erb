@@ -33,7 +33,7 @@
                   <% @rating = 0 %>
                   <% @blank_stars = 5 %>
                 <% else %>
-                  <% @rating = (cycle_route.reviews.sum(&rating).to_f / cycle_route.reviews.length).round %>
+                  <% @rating = (cycle_route.reviews.sum(&:rating).to_f / cycle_route.reviews.length).round %>
                 <% end %>
                 <% @rating.times do |f| %>
                   <%= image_tag "star.png", class: "star-sml" %>
