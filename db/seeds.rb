@@ -70,15 +70,15 @@ RouteTag.create(cycle_route: cycle_routes[:regents], tag: tags[:scenic])
 RouteTag.create(cycle_route: cycle_routes[:cs1], tag: tags[:quiet])
 RouteTag.create(cycle_route: cycle_routes[:tower], tag: tags[:historic])
 
+@rand_review = ['Pretty good cycle', Faker::Hacker.say_something_smart, 'unimpressed, I hit a bus :(', Faker::ChuckNorris.fact, 'Great!', 'Very pretty']
 @route_ids = CycleRoute.ids.map(&:to_i)
-p @route_ids
 
 5.times do
   @user = User.new(name: Faker::FunnyName.name, points: rand(0..90), password: "123456", email: Faker::Internet.email, routes_completed: rand(0..10), distance_cycled: rand(0.40))
   @user.save!
-  p @user
-  2.times do
-    review = Review.new(comment: Faker::ChuckNorris.fact, rating: rand(0..5), cycle_route_id: @route_ids.sample, user_id: @user.id)
+
+  4.times do
+    review = Review.new(comment: @rand_review.sample, rating: rand(0..5), cycle_route_id: @route_ids.sample, user_id: @user.id)
     review.save!
   end
 end
