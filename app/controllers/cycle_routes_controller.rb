@@ -14,7 +14,8 @@ class CycleRoutesController < ApplicationController
     # Perform address search first
     @cycle_routes = CycleRoute.near(params[:address_form][:address], 5)
     # Returns ActuveRecord relation
-
+    @rating = 0
+    @blank_stars = 5
     # No tags selected? No filter
     return if selected_tag_names.empty?
 
