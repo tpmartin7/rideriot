@@ -12,11 +12,20 @@
       </div>
 
       <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
-          <%= f.input :address, label: false %>
-          <% @tags.each do |tag| %>
-            <%= f.input tag.name, as: :boolean %>
+          <%= f.input :address, label: false, placeholder: "Enter Address" %>
+        <div class="tags-container">
+          <% @tags[0..1].each do |tag| %>
+            <%= f.input tag.name, as: :boolean, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
           <% end %>
-          <%= f.submit "Find Routes", class: "btn btn-primary" %>
+        </div>
+        <div class="tags-container">
+          <% @tags[2..3].each do |tag| %>
+            <%= f.input tag.name, as: :boolean, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+          <% end %>
+        </div>
+          <%= f.submit "Find Routes", class: "btn btn-primary w-100" %>
       <% end %>
 
       <div class="container" id="home-image-iphone">

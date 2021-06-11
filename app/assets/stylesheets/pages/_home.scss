@@ -23,7 +23,7 @@
 
 #home-image-iphone {
   position: relative;
-  margin-top: -99px;
+  margin-top: -188px;
   margin-left: 216px;
   z-index: 1;
 }
@@ -32,15 +32,18 @@
   position: relative;
   z-index: 3;
   margin-left: 160px;
-  padding-top: 409px;
+  padding-top: 185px;
 
 }
 
 .simple_form.address_form {
   position: relative;
   z-index: 4;
-  margin-left: 114px !important;
+  margin-left: calc(50vw - 112px);
   margin-bottom: -103px;
   padding-top: 30px;
 }
 
+.tags-container {
+  display: flex;
+}
