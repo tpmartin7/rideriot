@@ -1,4 +1,6 @@
 class AttemptsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: [ :create, :show ]
+
   def create
     @attempt = Attempt.new
     @attempt.user = current_user
@@ -24,7 +26,7 @@ class AttemptsController < ApplicationController
     end
   end
 
-  private 
+  private
   def attempt_show
     @disable_nav = true
   end

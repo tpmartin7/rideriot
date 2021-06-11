@@ -10,45 +10,63 @@
 admin = User.create(email: 'admin@rideriot.club', password: '123456') unless admin = User.find_by_email('admin@rideriot.club')
 
   # Remember you shouldnt destroy in the seed file in normal circumstances.
-Tag.destroy_all
-CycleRoute.destroy_all
+Review.destroy_all
 RouteTag.destroy_all
+CycleRoute.destroy_all
+Tag.destroy_all
   # Remember you shouldnt destroy in the seed file in normal circumstances.
-tag_names = %w[Scenic Quiet Historic Challenging]
-tags = []
-tag_names.each do |tag_name|
-  tags << Tag.new(name: tag_name)
-end
-tags.each { |tag| tag.save }
+tags = {
+  scenic: Tag.new(name: 'Scenic'),
+  quiet: Tag.new(name: 'Quiet'),
+  historic: Tag.new(name: 'Historic'),
+  challenging: Tag.new(name: 'Challenging')
+}
 
-cycle_routes = []
+tags.each_value { |tag| tag.save }
 
-cycle_routes << CycleRoute.new(
+cycle_routes = {
+  vicPark: CycleRoute.new(
     name: "Victoria Park",
     start_point: "Goodrich House, Sewardstone Road, London",
     end_point: "East Village, Stratford, London",
+    map_image: "rideriot/vicMap_ndt8xg.png",
+    total_distance: 2.5,
+    description: "Winner of the Green Flag award for the best UK park for the previous two years. The internal roadway is wide enough for people to cycle, walk and jog in the same space.",
     user: admin
-  )
-cycle_routes << CycleRoute.new(
+  ),
+  regents: CycleRoute.new(
     name: "Regents Canal",
     start_point: "283a Kingsland Rd, London E2 8AS",
     end_point: "139 Graham St, London N1 8LB",
+    map_image: "rideriot/regentsMap_zrldo1.png",
+    total_distance: 1.2,
+    description: "One of London’s best-kept secrets. Take in scenic views and miss out the congestion, crowds and noise.",
     user: admin
-  )
-cycle_routes << CycleRoute.new(
+  ),
+  cs1: CycleRoute.new(
     name: "CS1",
     start_point: "16 Whitmore Rd, London N1 5QA",
     end_point: "Finsbury Circus, London EC2M 7DT",
+    map_image: "rideriot/cs1Map_lqarfs.png",
+    total_distance: 1.5,
+    description: "London's first Cycle Superhighway is a great way to explore London on roads you probably won't have used on a bike before.",
     user: admin
-  )
-cycle_routes << CycleRoute.new(
+  ),
+  tower: CycleRoute.new(
     name: "Tower of London",
     start_point: "119 Shoreditch High St, London E1 6JN",
     end_point: "Tower of London, London EC3N 4AB",
+    map_image: "rideriot/towerMap_qsrsdt.png",
+    total_distance: 1.8,
+    description: "The Tower of London has played a prominent role in English history, and is one of the country's most popular tourist attractions. ",
     user: admin
   )
+}
 
-cycle_routes.each do |cycle_route|
-  cycle_route.save
-  RouteTag.create(cycle_route: cycle_route, tag: tags.sample)
-end
+cycle_routes.each_value { |cycle_route| cycle_route.save }
+
+RouteTag.create(cycle_route: cycle_routes[:vicPark], tag: tags[:scenic])
+RouteTag.create(cycle_route: cycle_routes[:vicPark], tag: tags[:quiet])
+RouteTag.create(cycle_route: cycle_routes[:regents], tag: tags[:scenic])
+RouteTag.create(cycle_route: cycle_routes[:cs1], tag: tags[:quiet])
+RouteTag.create(cycle_route: cycle_routes[:tower], tag: tags[:historic])

@@ -12,7 +12,10 @@
       </div>
 
       <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
-          <%= f.input :address, label: false, id:"address-input" %>
+          <%= f.input :address, label: false %>
+          <% @tags.each do |tag| %>
+            <%= f.input tag.name, as: :boolean %>
+          <% end %>
           <%= f.submit "Find Routes", class: "btn" %>
       <% end %>
 
@@ -26,3 +29,4 @@
       </div>
   </div>
 </div>
+

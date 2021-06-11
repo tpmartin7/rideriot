@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_143716) do
+ActiveRecord::Schema.define(version: 2021_06_10_205138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_143716) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
+    t.string "map_image"
     t.index ["user_id"], name: "index_cycle_routes_on_user_id"
   end
 
