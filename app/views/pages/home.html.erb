@@ -1,33 +1,28 @@
+ 
 <div class="container" id="home-main">
   <div class="row col-6">
-      
       <div class="container" id="hero-text">
-        <h1>Explore.</h1>
-        <h1>Cycle.</h1>
-        <h1>Enjoy.</h1>
+        <h1><strong>RideRiot</strong></h1>
+        <h4>Explore.</h4>
+        <h4>Cycle.</h4>
+        <h4>Enjoy.</h4>
       </div>
-    
       <div class="container" id="home-image-bicycle">
           <%= image_tag "bicycle.svg", height: 150, width: 150 %>
       </div>
 
+      <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
+          <%= f.input :address, label: false, id:"address-input" %>
+          <%= f.submit "Find Routes", class: "btn" %>
+      <% end %>
+
       <div class="container" id="home-image-iphone">
           <%= image_tag "iphone.svg", height: 75, width: 75 %>
       </div>
-
-      <div  id="home-form"> 
-          <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
-            <%= f.input :address, label: false %>
-            <%= f.button :submit, "Find Routes", class: "btn" %>
-          <% end %>
-      </div>
-
       <div class="container" id="home-avatar"> 
         <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
           <%= image_tag "man.png", class: "avatar user" %>
         <% end %>
       </div>
-
   </div>
 </div>
-

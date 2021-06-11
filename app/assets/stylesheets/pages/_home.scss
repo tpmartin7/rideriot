@@ -2,6 +2,10 @@
   margin-top: 100px;
 }
 
+#hero-title {
+  color: #5857D5;
+}
+
 #hero-text {
   color: #5857D5;
   font-weight: bold;
@@ -13,31 +17,30 @@
 
 #home-image-bicycle {
   position: relative;
-  margin-left: 130px;
+  margin-left: 108px;
   z-index: 0;
 }
 
-
 #home-image-iphone {
   position: relative;
-  margin-top: -76px;
-  margin-left: 235px;
+  margin-top: -99px;
+  margin-left: 216px;
   z-index: 1;
-
 }
-
-#home-form {
-  position: relative;
-  z-index: -1;
-  margin-top: 83px;
-  margin-left: 119px;
-}
-
 
 #home-avatar {
   position: relative;
   z-index: 3;
-  margin-left: 164px;
-  padding-top: 230px;
+  margin-left: 160px;
+  padding-top: 409px;
+
+}
+
+.simple_form.address_form {
+  position: relative;
+  z-index: 4;
+  margin-left: 114px !important;
+  margin-bottom: -103px;
+  padding-top: 30px;
 }
 
