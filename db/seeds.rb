@@ -1,19 +1,18 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-admin = User.create(email: 'admin@rideriot.club', password: '123456') unless admin = User.find_by_email('admin@rideriot.club')
+require 'faker'
 
   # Remember you shouldnt destroy in the seed file in normal circumstances.
+p "destroying DB data"
 Review.destroy_all
 RouteTag.destroy_all
 CycleRoute.destroy_all
 Tag.destroy_all
+User.destroy_all
+p "destroyed data"
+
+admin = User.create(email: 'admin@rideriot.club', password: '123456') unless admin = User.find_by_email('admin@rideriot.club')
+
   # Remember you shouldnt destroy in the seed file in normal circumstances.
 tags = {
   scenic: Tag.new(name: 'Scenic'),
@@ -70,3 +69,18 @@ RouteTag.create(cycle_route: cycle_routes[:vicPark], tag: tags[:quiet])
 RouteTag.create(cycle_route: cycle_routes[:regents], tag: tags[:scenic])
 RouteTag.create(cycle_route: cycle_routes[:cs1], tag: tags[:quiet])
 RouteTag.create(cycle_route: cycle_routes[:tower], tag: tags[:historic])
+
+@rand_review = ['Pretty good cycle', Faker::Hacker.say_something_smart, 'unimpressed, I hit a bus :(', Faker::ChuckNorris.fact, 'Great!', 'Very pretty']
+@route_ids = CycleRoute.ids.map(&:to_i)
+
+5.times do
+  @user = User.new(name: Faker::FunnyName.name, points: rand(0..90), password: "123456", email: Faker::Internet.email, routes_completed: rand(0..10), distance_cycled: rand(0.40))
+  @user.save!
+
+  4.times do
+    review = Review.new(comment: @rand_review.sample, rating: rand(0..5), cycle_route_id: @route_ids.sample, user_id: @user.id)
+    review.save!
+  end
+end
+
+
