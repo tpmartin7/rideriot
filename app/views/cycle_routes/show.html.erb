@@ -44,7 +44,7 @@
     <div class="cards">
       <h4 class="reviews-header mt-2">Reviews</h4>
       <% @reviews.each do |review| %>
-        <p class="d-flex justify-content-start px-3 mb-0"><strong><%= review.user.name %> says:</strong></p>
+        <p class="d-flex justify-content-start px-3 mb-0" id="review-<%= review.id %>"><strong><%= review.user.name %> says:</strong></p>
         <div class="d-flex justify-content-between px-2">
           <div class="col-xs-8">
             <p class="text-left pl-2">"<%= review.comment %>"</p>
