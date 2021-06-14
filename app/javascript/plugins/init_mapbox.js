@@ -27,29 +27,19 @@ const initMapbox = () => {
       
      fitMapToMarkers(map, markers);
       
-
-      // initialize the map canvas to interact with later
       var canvas = map.getCanvasContainer();
-
-      // an arbitrary start will always be the same
-      // only the end or destination will change
-  
-
       const urlMarkers = markers.map((item) => { return `${item.lng},${item.lat}`}).join(';')
       console.log(urlMarkers);
 
        var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + urlMarkers + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
        console.log('hello')
-       // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+    
        fetch(url)
        .then(response => response.json())
        .then((data) => {
        
-
-        
           var data = data.routes[0];
-      
-    
+
           data.legs.forEach((leg, legIndex) => {
 
             leg.steps.forEach((step, index) => {
@@ -60,7 +50,6 @@ const initMapbox = () => {
   
               });
 
-             
               map.addSource(`leg${legIndex}step${index}`, {
                 'type': 'geojson',
                 'data': {
@@ -87,8 +76,8 @@ const initMapbox = () => {
                 }
               });
             });
-          });
         });
+    });
   } 
  };
 
