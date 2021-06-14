@@ -2,11 +2,16 @@
   <div class="container">
         <h1 class="text-center">Finish</h1>
         <div class="fixed-bottom">
-          <button id="map-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Finish</button>
+          <% if params[:complete] == "true" %>
+            <button id="map-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Finish</button>
+          <% else %>
+            <%= link_to "Finish", attempt_path(@attempt, complete: true), class: "btn btn-primary", id: "map-btn" %>
+          <% end %>
+
         </div>
   </div>
 </div>
-  <div id="instructions"></div>
+  <!-- <div id="instructions"></div> -->
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -22,6 +27,7 @@
         <h5> Points Earned: 135 💎</h5>
         <h5> Trophies Won: 2 💰</h5>
       </div>
+
       <div class="modal-footer justify-content-center">
         <%= link_to "Collect your Rewards", user_path(current_user), method: :get, class: 'btn btn-primary', id: "btn-modal" %>
         <%= link_to "Write a Review", new_cycle_route_review_path(@cycle_route), method: :get, class: 'btn btn-success', id: "btn-modal" %>
@@ -31,3 +37,19 @@
   </div>
 </div>
 
+<% if params[:complete] == "true" %>
+  <script>
+    document.addEventListener("turbolinks:load", () => {
+      document.getElementById("map-btn").click()
+    })
+  </script>
+<% end %>
+<!-- When you complete an attempt, you need to update the users
+      total distance traveled, routes completed, and mark the current
+      attempt as complete.
+
+      Create a new route whe
+
+      In order to give awards when a route is completed, do we need a new route?
+      You can create rules for automatic merit awarding triggered by a route
+      or -->

@@ -17,16 +17,23 @@ Merit.setup do |config|
 end
 
 # Create application badges (uses https://github.com/norman/ambry)
-# Rails.application.reloader.to_prepare do
-#   badge_id = 0
-#   [{
-#     id: (badge_id = badge_id+1),
-#     name: 'just-registered'
-#   }, {
-#     id: (badge_id = badge_id+1),
-#     name: 'best-unicorn',
-#     custom_fields: { category: 'fantasy' }
-#   }].each do |attrs|
-#     Merit::Badge.create! attrs
-#   end
-# end
+Rails.application.reloader.to_prepare do
+  badge_id = 0
+  [{
+    id: (badge_id = badge_id+1),
+    name: 'first-route',
+    description: 'You completed your first cycle route',
+    level: 0,
+    custom_fields: { difficulty: :bronze }
+  }].each do |attrs|
+    Merit::Badge.create! attrs
+  end
+end
+
+# {
+#   id: (badge_id = badge_id+1),
+#   name: 'first-route',
+#   description: 'You completed your first cycle route',
+#   level: 0,
+#   custom_fields: { difficulty: :bronze }
+# }
