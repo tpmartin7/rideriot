@@ -7,7 +7,7 @@
     <%= image_tag "man.png", class: "avatar user" %>
   <% end %>
 
-  <%= link_to "#", class: "navbar-home" do %>
-    <%= image_tag "paper-plane.png", class: "icon" %>
+  <%= link_to cycle_route_path(CycleRoute.pluck(:id).sample), class: "navbar-home" do %>
+    <%= image_tag "shuffle-one.png", class: "icon" %>
   <% end %>
 </div>
