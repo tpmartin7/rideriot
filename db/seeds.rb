@@ -56,9 +56,9 @@ cycle_routes = {
   ),
   tower: CycleRoute.new(
     name: "Tower of London",
-    start_point: "119 Shoreditch High St, London E1 6JN",
-    end_point: "Tower of London, London EC3N 4AB",
-    way_points: "56 Brushfield Street E1 6AA, St Mary Axe E15 2SN",
+    start_point: "Tower of London, London EC3N 4AB",
+    end_point: "Montfichet Rd E20 1EJ",
+    way_points: "56 Brushfield Street E1 6AA, St Mary Axe E15 2SN, 64 Chisenhale Rd Bow E3 5QZ",
     map_image: "rideriot/towerMap_qsrsdt.png",
     total_distance: 1.8,
     description: "The Tower of London has played a prominent role in English history, and is one of the country's most popular tourist attractions. ",
