@@ -33,7 +33,7 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for :friend_form, url: add_friend_path, method: :get do |f| %>
-              <%= f.input :user_id, collection: User.pluck(:email, :id) %>
+              <%= f.input :user_id, collection: User.pluck(:name, :id) %>
               <%= f.submit "Add" %>
             <% end %>
           </div>
@@ -54,7 +54,7 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for :friend_form, url: delete_friend_path, method: :delete do |f| %>
-              <%= f.input :user_id, collection: User.pluck(:email, :id) %>
+              <%= f.input :user_id, collection: User.pluck(:name, :id) %>
               <%= f.submit "Delete" %>
             <% end %>
           </div>
@@ -63,13 +63,13 @@
     </div>
 
     <% @iterator = 1 %>
-    <% @sorted_friends.each do |friend| %>
+    <% @sorted_friends.each do |name, points| %>
       <div class="row">
         <div class="col friend-row">
-          <strong><%= @iterator %>. </strong><%= friend.name %>
+          <strong><%= @iterator %>. </strong><%= name %>
         </div>
         <div class="col friend-row">
-           is on <span class="points"><%= friend.points %>  </span>points
+           is on <span class="points"><%= points %>  </span>points
         </div>
       </div>
       <% @iterator += 1 %>

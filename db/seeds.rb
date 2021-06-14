@@ -11,7 +11,7 @@ Tag.destroy_all
 User.destroy_all
 p "destroyed data"
 
-admin = User.create(email: 'admin@rideriot.club', password: '123456') unless admin = User.find_by_email('admin@rideriot.club')
+admin = User.create(email: 'admin@rideriot.club', password: '123456', name: "Kiz", points: 39, routes_completed: 3, distance_cycled: 47) unless admin = User.find_by_email('admin@rideriot.club')
 
   # Remember you shouldnt destroy in the seed file in normal circumstances.
 tags = {
