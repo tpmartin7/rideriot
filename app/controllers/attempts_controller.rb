@@ -1,5 +1,5 @@
 class AttemptsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :create, :show ]
+  skip_before_action :authenticate_user!, only: [ :create, :show ]
 
   def create
     @attempt = Attempt.new
@@ -15,8 +15,9 @@ class AttemptsController < ApplicationController
     @cycle_route = @attempt.cycle_route
 
     points =[]
-    points << Geocoder.search(@cycle_route.start_point).first.coordinates
-    points << Geocoder.search(@cycle_route.end_point).first.coordinates
+    points << originPoint = Geocoder.search(@cycle_route.start_point).first.coordinates
+    points << firstWaypoint = Geocoder.search(@cycle_route.way_points).first.coordinates
+    points << destinationPoint = Geocoder.search(@cycle_route.end_point).first.coordinates
 
     @markers = points.map do |coordinates|
       {

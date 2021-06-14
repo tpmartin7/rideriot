@@ -55,6 +55,7 @@ cycle_routes = {
     name: "Tower of London",
     start_point: "119 Shoreditch High St, London E1 6JN",
     end_point: "Tower of London, London EC3N 4AB",
+    way_points: "56 Brushfield St, London E1 6AA", "48-54 Moorgate, London EC2R 6EJ",
     map_image: "rideriot/towerMap_qsrsdt.png",
     total_distance: 1.8,
     description: "The Tower of London has played a prominent role in English history, and is one of the country's most popular tourist attractions. ",
