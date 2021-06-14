@@ -1,4 +1,4 @@
-<div class="container">
+  <div class="container">
   <div class="cards" style="text-align: center;">
     <div class="show-photo d-flex align-items-center justify-content-center" style='background-image: url("http://res.cloudinary.com/duae8ljpg/image/upload/v1/<%= @cycle_route.map_image %>"); height: 200px; background-size: cover;'>
       <div class="name-banner">
@@ -42,24 +42,29 @@
 
   <% if @reviews.present? %>
     <div class="cards">
-      <h4 class="reviews-header mt-2">Reviews</h4>
+      <h4 class="reviews-header my-4">Reviews</h4>
       <% @reviews.each do |review| %>
-        <p class="d-flex justify-content-start px-3 mb-0"><strong><%= review.user.name %> says:</strong></p>
-        <div class="d-flex justify-content-between px-2">
-          <div class="col-xs-8">
-            <p class="text-left pl-2">"<%= review.comment %>"</p>
-          </div>
-          <div class="col-xs-4" style="width: 190px">
-              <% review.rating.times do |f| %>
-                <%= image_tag "star.png", class: "star-sml" %>
-              <% end %>
-              <% @num = 5 - review.rating %>
-              <% @num.times do |f| %>
-                <%= image_tag "blank-star.png", class: "star-sml" %>
-              <% end %>
-          </div>
+        <p class="mb-0 mt-2"><strong><%= review.user.name %> says:</strong></p>
+        <p class="mt-0 mb-0">"<%= review.comment %>"</p>
+        <div class="mb-4">
+          <% review.rating.times do |f| %>
+            <%= image_tag "star.png", class: "star-sml" %>
+          <% end %>
+          <% @num = 5 - review.rating %>
+          <% @num.times do |f| %>
+            <%= image_tag "blank-star.png", class: "star-sml" %>
+          <% end %>
         </div>
       <% end %>
+      <!-- Button to review -->
+      <%= link_to "Write a Review", new_cycle_route_review_path(params[:id]), class: 'btn btn-primary mr-2 cust-width mb-5' %>
+
+    </div>
+    <% else %>
+    <div class="cards">
+      <h2 class="my-4">Be the first to review</h2>
+      <%= link_to "Write a Review", new_cycle_route_review_path(params[:id]), class: 'btn btn-primary mr-2 cust-width mb-5' %>
+
     </div>
   <% end %>
 </div>
