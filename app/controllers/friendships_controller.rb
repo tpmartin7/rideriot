@@ -5,8 +5,7 @@ class FriendshipsController < ApplicationController
     @user.friend_request current_user
 
     if current_user.friends_with?(@user) || current_user.id == @user.id
-      raise
-      #TODO - don't know how to throw error
+
     else
       current_user.accept_request(@user)
     end
