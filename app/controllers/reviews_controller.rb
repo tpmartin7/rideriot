@@ -1,8 +1,16 @@
 class ReviewsController < ApplicationController
 
-  def create
-    #This will be on a simple form for on the attempts#show page
+  def new
+    @cycle_route = CycleRoute.find(params[:cycle_route_id])
+    @review = Review.new
+  end
 
+  def create
+    @params = params[:review]
+    @review = Review.new(comment: @params[:comment], rating: @params[:rating], cycle_route_id: params[:cycle_route_id])
+    @review.user_id = current_user.id
+    @review.save!
+    redirect_to cycle_route_path(params[:cycle_route_id], anchor: "review-#{@review.id}")
   end
 
   # def destroy
