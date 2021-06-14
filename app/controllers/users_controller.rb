@@ -3,7 +3,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @user_friends = @user.friends
-    @sorted_friends_ascen = @user_friends.sort_by &:points
-    @sorted_friends = @sorted_friends_ascen.reverse
+
+
+    @friend_hash = {}
+    @user.friends.each do |friend|
+      name = friend.name
+      @friend_hash[name] = friend.points
+    end
+
+    user_name = @user.name
+    user_points = @user.points
+    @friend_hash[user_name] = user_points
+    @sorted_friends = @friend_hash.sort_by{|k, v| -v}
   end
 end
