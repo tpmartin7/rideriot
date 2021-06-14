@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'merit'
 gem 'faker'
 gem 'has_friendship'
 gem 'cloudinary', '~> 1.16.0'
