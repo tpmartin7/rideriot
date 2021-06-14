@@ -38,6 +38,9 @@
 </div>
 
 <% if params[:complete] == "true" %>
+  <% current_user.routes_completed += 1 %>
+  <% current_user.distance_cycled += @cycle_route.total_distance %>
+  <% current_user.save %>
   <script>
     document.addEventListener("turbolinks:load", () => {
       document.getElementById("map-btn").click()
