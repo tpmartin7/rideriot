@@ -28,9 +28,11 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   setTimeout(() => {  initMapbox(); }, 1000);
+  initStarRating();
   // initMapbox();
 });
