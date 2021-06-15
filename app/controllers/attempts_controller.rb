@@ -1,5 +1,5 @@
 class AttemptsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :create, :show ]
+
 
   def create
     @attempt = Attempt.new
@@ -14,25 +14,31 @@ class AttemptsController < ApplicationController
     attempt_show
     @attempt = Attempt.find(params[:id])
     @cycle_route = @attempt.cycle_route
-    
-    points =[]
-    
-    way_points = @cycle_route.way_points.split(',').map { |e| e + " london"}
-    
-    points << originPoint = Geocoder.search(@cycle_route.start_point).first.coordinates
 
-    way_points.each do |way_point|
-      points << Geocoder.search(way_point).first.coordinates
-    end
+    @locations = Location.where(cycle_route: @cycle_route.id)
 
-    points << destinationPoint = Geocoder.search(@cycle_route.end_point).first.coordinates
+    @markers = []
 
-    @markers = points.map do |coordinates|
-      {
-        lat: coordinates.first,
-        lng: coordinates.second
+    @markers << start_point = {
+      lat: Geocoder.search(@cycle_route.start_point).first.coordinates.first,
+      lng: Geocoder.search(@cycle_route.start_point).first.coordinates.second,
+      info_window: render_to_string(partial: "info_window", locals: { cycle_route: CycleRoute.new(name: "Start Point", description: "Jump on your bike here and have fun!") })
+    }
+
+    @locations.each do |location|
+      @markers << way_points = {
+        lat: Geocoder.search(location.address).first.coordinates.first,
+        lng: Geocoder.search(location.address).first.coordinates.second,
+        info_window: render_to_string(partial: "info_window", locals: { cycle_route: location })
       }
     end
+
+    @markers << end_point = {
+      lat: Geocoder.search(@cycle_route.end_point).first.coordinates.first,
+      lng: Geocoder.search(@cycle_route.end_point).first.coordinates.second,
+      info_window: render_to_string(partial: "info_window", locals: { cycle_route: CycleRoute.new(name: "End Point", description: "Congrats, you finished this route. Go grab a beer to celebrate!") })
+    }
+
   end
 
   def finish
