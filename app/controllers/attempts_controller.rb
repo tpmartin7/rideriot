@@ -13,7 +13,7 @@ class AttemptsController < ApplicationController
     attempt_show
     @attempt = Attempt.find(params[:id])
     @cycle_route = @attempt.cycle_route
-
+    
     points =[]
     
     way_points = @cycle_route.way_points.split(',').map { |e| e + " london"}

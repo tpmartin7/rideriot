@@ -17,7 +17,7 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
       
-   
+      
       const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
         var el = document.createElement('div');
@@ -73,8 +73,8 @@ const initMapbox = () => {
                   'line-cap': 'round'
                 },
                 'paint': {
-                  'line-color': '#5857D5',
-                  'line-width': 8
+                  'line-color': '#ED3A50',
+                  'line-width': 6
                 }
               });
             });
@@ -84,3 +84,4 @@ const initMapbox = () => {
  };
 
 export { initMapbox };
+
