@@ -1,5 +1,22 @@
 #btn-modal {
   width: 202px;
+  font-size: 1.2em;
   // background-color: #5857D5;
   // margin-right: 60px;
+}
+
+#btn-modal-2 {
+  width: 202px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.button-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 202px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 1.2em;
 }
