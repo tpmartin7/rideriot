@@ -1,18 +1,20 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 require 'faker'
+require "open-uri"
 
   # Remember you shouldnt destroy in the seed file in normal circumstances.
-p "destroying DB data"
+
 Review.destroy_all
 RouteTag.destroy_all
 CycleRoute.destroy_all
 Tag.destroy_all
 User.destroy_all
-p "destroyed data"
 
-admin = User.create(email: 'admin@rideriot.club', password: '123456', name: "Kiz", points: 39, routes_completed: 3, distance_cycled: 47) unless admin = User.find_by_email('admin@rideriot.club')
 
+admin = User.create!(email: 'admin@rideriot.club', password: '123456', name: "Kiz", points: 39, routes_completed: 3, distance_cycled: 47) unless admin = User.find_by_email('admin@rideriot.club')
+kiz = URI.open('https://res.cloudinary.com/duae8ljpg/image/upload/v1623687480/rideriot/kieryn_o9alpo.jpg')
+admin.photo.attach(io: kiz, filename: "kiz.jpg", content_type: 'image/jpg')
   # Remember you shouldnt destroy in the seed file in normal circumstances.
 tags = {
   scenic: Tag.new(name: 'Scenic'),
