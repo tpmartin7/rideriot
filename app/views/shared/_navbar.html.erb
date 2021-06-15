@@ -4,7 +4,11 @@
     <% end %>
 
   <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
-    <%= image_tag "man.png", class: "avatar user" %>
+    <% if user_signed_in? && current_user.photo.attached? %>
+      <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar user") %>
+    <% else %>
+      <%= image_tag "man.png", class: "avatar user" %>
+    <% end %>
   <% end %>
 
   <%= link_to cycle_route_path(CycleRoute.pluck(:id).sample), class: "navbar-home" do %>

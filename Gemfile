@@ -9,6 +9,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'mapbox-gl-rails'
 gem 'mapbox-rails'
 gem 'geocoder'
+gem 'pg_search', '~> 2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
