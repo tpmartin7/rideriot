@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get "add_friend", to: 'friendships#create'
   delete "delete_friend", to: 'friendships#destroy'
+  get "/attempts/:id/finish", to: 'attempts#finish', as: :finish
 end
