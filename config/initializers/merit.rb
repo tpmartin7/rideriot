@@ -18,15 +18,30 @@ end
 
 # Create application badges (uses https://github.com/norman/ambry)
 Rails.application.reloader.to_prepare do
-  badge_id = 0
+  # badge_id = 1 ||
   [{
-    id: (badge_id = badge_id+1),
+    id: 1,
     name: 'first-route',
-    description: 'You completed your first cycle route',
-    level: 0,
+    description: 'Completed first cycle route',
     custom_fields: { difficulty: :bronze }
-  }].each do |attrs|
+   }, {
+    id: 2,
+    name: '5-miles',
+    description: 'Cycled a total of 5 miles',
+    custom_fields: { difficulty: :bronze }
+   }, {
+    id: 3,
+    name: '5-routes',
+    description: 'Completed five cycle routes',
+    custom_fields: { difficulty: :silver }
+   }, {
+    id: 4,
+    name: '20-miles',
+    description: 'Cycled a total of 20 miles',
+    custom_fields: { difficulty: :silver }
+   }].each do |attrs|
     Merit::Badge.create! attrs
+    # badge_id += 1
   end
 end
 

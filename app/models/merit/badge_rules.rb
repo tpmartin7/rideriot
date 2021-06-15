@@ -21,6 +21,22 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
+      grant_on 'attempts#show', badge: 'first-route', to: :user do |attempt|
+        attempt.user.routes_completed >= 1
+      end
+
+      grant_on 'attempts#show', badge: '5-miles', to: :user do |attempt|
+        attempt.user.distance_cycled >= 5.0
+      end
+
+      grant_on 'attempts#show', badge: '20-miles', to: :user do |attempt|
+        attempt.user.distance_cycled >= 20.0
+      end
+
+      grant_on 'attempts#show', badge: '5-routes', to: :user do |attempt|
+        attempt.user.routes_completed >= 5
+      end
+
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # Find badge by badge_id, badge_id takes presidence over badge
