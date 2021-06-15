@@ -83,8 +83,8 @@ const initMapbox = () => {
 
               var tripInstructions = [];
                 for (var i = 0; i < steps.length; i++) {
-                  tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-                  instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;
+                  tripInstructions.push('<li>' + steps[i].maneuver.instruction) + '</li>';
+                  instructions.innerHTML = '<span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + 'm </span>' + tripInstructions;
                 }
             });
         });
