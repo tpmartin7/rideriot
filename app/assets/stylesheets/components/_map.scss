@@ -17,7 +17,7 @@
   font-family: sans-serif;
   font-size: 1.2em;
   line-height: 2em;
-  border-top: 3px solid #0e0000;
+  border-top: 3px solid #5857D5;
   padding-left: 30px;
   padding-top: 10px;
 }
@@ -38,10 +38,23 @@
 }
 
 .marker {
-  background-image: url('bicycle-solid.png');
+  background-image: url('bicycle.png');
   background-size: cover;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   cursor: pointer;
+}
+
+.mapboxgl-popup {
+max-width: 200px;
+border-radius: 5px;
+}
+
+
+.mapboxgl-popup-content {
+  text-align: center;
+}
+
+.mapboxgl-popup-close-button {
+  color: #5857D5;
 }

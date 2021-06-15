@@ -16,40 +16,44 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
-      
-      
+
+
       const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
+
+        var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(marker.info_window);
+
         var el = document.createElement('div');
         el.className = 'marker';
         new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(map);
       });
-      
+
      fitMapToMarkers(map, markers);
-      
+
       var canvas = map.getCanvasContainer();
       const urlMarkers = markers.map((item) => { return `${item.lng},${item.lat}`}).join(';')
       console.log(urlMarkers);
 
        var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + urlMarkers + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
        console.log('hello')
-    
+
        fetch(url)
        .then(response => response.json())
        .then((data) => {
-       
+
           var data = data.routes[0];
 
           data.legs.forEach((leg, legIndex) => {
 
             leg.steps.forEach((step, index) => {
-             
+
               var route = step.geometry.coordinates.map((coord) => {
-                
+
                   return coord;
-  
+
               });
 
               map.addSource(`leg${legIndex}step${index}`, {
@@ -73,7 +77,7 @@ const initMapbox = () => {
                   'line-cap': 'round'
                 },
                 'paint': {
-                  'line-color': '#ED3A50',
+                  'line-color': '#5857D5',
                   'line-width': 6
                 }
               });
@@ -84,12 +88,12 @@ const initMapbox = () => {
               var tripInstructions = [];
                 for (var i = 0; i < steps.length; i++) {
                   tripInstructions.push('<li>' + steps[i].maneuver.instruction) + '</li>';
-                  instructions.innerHTML = '<span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + 'm </span>' + tripInstructions;
+                  instructions.innerHTML = '<span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' mins </span>' + tripInstructions;
                 }
             });
         });
     });
-  } 
+  }
  };
 
 export { initMapbox };

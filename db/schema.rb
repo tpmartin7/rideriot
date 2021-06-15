@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_205138) do
+ActiveRecord::Schema.define(version: 2021_06_15_161040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_205138) do
     t.string "name"
     t.string "start_point"
     t.string "end_point"
-    t.string "way_points"
     t.float "total_distance"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -73,6 +72,17 @@ ActiveRecord::Schema.define(version: 2021_06_10_205138) do
     t.integer "blocker_id"
     t.integer "status"
     t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.bigint "cycle_route_id", null: false
+    t.integer "order"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cycle_route_id"], name: "index_locations_on_cycle_route_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -121,6 +131,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_205138) do
   add_foreign_key "attempts", "cycle_routes"
   add_foreign_key "attempts", "users"
   add_foreign_key "cycle_routes", "users"
+  add_foreign_key "locations", "cycle_routes"
   add_foreign_key "reviews", "cycle_routes"
   add_foreign_key "reviews", "users"
   add_foreign_key "route_tags", "cycle_routes"
