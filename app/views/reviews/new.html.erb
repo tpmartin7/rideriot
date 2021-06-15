@@ -3,7 +3,7 @@
     <h3>Leave a Review</h3>
     <%= simple_form_for [ @cycle_route, @review ] do |f| %>
       <%= f.input :comment, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate this route" %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate this route"%>
       <%= f.submit %>
     <% end %>
   </div>
