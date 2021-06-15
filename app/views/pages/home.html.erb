@@ -31,11 +31,13 @@
       <div class="container" id="home-image-iphone">
           <%= image_tag "iphone.svg", height: 75, width: 75 %>
       </div>
-      <div class="container" id="home-avatar">
-        <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
+      <%= link_to current_user ? user_path(current_user) : new_user_session_path do %>
+        <% if user_signed_in? && current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar user") %>
+        <% else %>
           <%= image_tag "man.png", class: "avatar user" %>
         <% end %>
-      </div>
+      <% end %>
   </div>
 </div>
 

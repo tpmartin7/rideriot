@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :cycle_routes, only: [:index, :show] do
     resources :attempts, only: [:create]
-    resources :reviews, only: [:new, :create, :destroy]
+    resources :reviews, only: [:new, :create]
   end
   resources :attempts, only: [:show]
   resources :users, only: [:show]
