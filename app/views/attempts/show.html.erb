@@ -1,16 +1,24 @@
 <div id="parent">
   <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%=  @markers.to_json %>">
     <div class="container">
-          <h1 class="text-center">Finish</h1>
-          <div class="fixed-bottom">
-            <button id="map-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Finish</button>
-          </div>
+      <div class="fixed-bottom">
+        <% if params[:complete] == "true" %>
+          <button id="map-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Finish</button>
+        <% else %>
+          <%= link_to "Finish", finish_path(@attempt), class: "btn btn-primary", id: "map-btn" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div id="instructions">
-  </div>
+  <div id="instructions"></div>
 </div>
-
+<% if params[:complete] == "true" %>
+  <script>
+    document.addEventListener("turbolinks:load", () => {
+      document.getElementById("map-btn").click()
+    })
+  </script>
+<% end %>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -21,9 +29,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5> Distance Cycled: 12km 🕍</h5>
-        <h5> Points Earned: 135 💎</h5>
-        <h5> Trophies Won: 2 💰</h5>
+        <h5>Distance Cycled: <%= @cycle_route.total_distance %> mi</h5>
+        <h5 id="route-time">Time to complete route: <%= (@attempt.end_time&.to_datetime - @attempt.start_time.to_datetime).to_i/1000 if @attempt.end_time %> seconds</h5>
+        <% current_user.badges.each_value do |info| %>
+          <% next unless info[:time_earned] %>
+          <% if info[:time_earned] > DateTime.now - 5.seconds %>
+            <h5>You earned a new trophy!</h5>
+            <ul>
+              <li>  <%= cl_image_tag info[:cl_image] %>  </li>
+              <li> <%= info[:desc] %> </li>
+            </ul>
+          <% end %>
+        <% end %>
       </div>
       <div class="modal-footer justify-content-center">
         <%= link_to "Collect your Rewards", user_path(current_user), method: :get, class: 'btn btn-primary', id: "btn-modal" %>
@@ -33,6 +50,3 @@
     </div>
   </div>
 </div>
-
-
-

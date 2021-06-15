@@ -1,19 +1,34 @@
 <div class="container">
   <div class="cards">
-    <h2>Stats</h2>
     <ul>
-      <li>Distance cycled: <span class="points"><%= @user.distance_cycled %>km</span></li>
+      <li>Distance cycled: <span class="points"><%= @user.distance_cycled %> mi</span></li>
       <li>Cycle Routes completed: <span class="points"><%= @user.routes_completed %></span></li>
     </ul>
   </div>
   <div class="cards">
-    <h2>Achievements</h2>
     <div class="achievement-list">
       <ul>
-        <li>💎 collected: <span class="points">45</span></li>
-        <li>🕍 seen: <span class="points">12</span></li>
-        <li>🚌 collided with: <span class="points">3</span></li>
-        <li>💰 total points: <span class="points"><%= @user.points %></span></li>
+        <% if current_user.gold %>
+          <li>
+            <%= cl_image_tag current_user.badges[:gold][:cl_image] %>
+            <%= current_user.badges[:gold][:desc] %>
+            badge earned at <%= current_user.gold %>
+          </li>
+        <% end %>
+        <% if current_user.silver %>
+          <li>
+            <%= cl_image_tag current_user.badges[:silver][:cl_image] %>
+            <%= current_user.badges[:silver][:desc] %>
+            badge earned at <%= current_user.silver %>
+          </li>
+        <% end %>
+        <% if current_user.bronze %>
+          <li>
+            <%= cl_image_tag current_user.badges[:bronze][:cl_image] %>
+            <%= current_user.badges[:bronze][:desc] %>
+            badge earned at <%= current_user.bronze %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
