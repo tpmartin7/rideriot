@@ -77,6 +77,15 @@ const initMapbox = () => {
                   'line-width': 6
                 }
               });
+
+              var instructions = document.getElementById('instructions');
+              var steps = data.legs[0].steps;
+
+              var tripInstructions = [];
+                for (var i = 0; i < steps.length; i++) {
+                  tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+                  instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;
+                }
             });
         });
     });
