@@ -5,3 +5,11 @@
 .star-sml {
   height: 14px;
 }
+
+a.br-selected:after {
+    color: #5857D5 !important;
+}
+
+a.br-active:after {
+  color: #5857D5 !important;
+}
