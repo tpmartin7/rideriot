@@ -123,6 +123,9 @@ ActiveRecord::Schema.define(version: 2021_06_15_161040) do
     t.integer "routes_completed"
     t.string "name"
     t.integer "points"
+    t.datetime "bronze"
+    t.datetime "silver"
+    t.datetime "gold"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
