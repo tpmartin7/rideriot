@@ -5,6 +5,7 @@ class AttemptsController < ApplicationController
     @attempt = Attempt.new
     @attempt.user = current_user
     @attempt.cycle_route = CycleRoute.find(params[:cycle_route_id])
+    @attempt.start_time = DateTime.current
     @attempt.save
     redirect_to attempt_path(@attempt)
   end

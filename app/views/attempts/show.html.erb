@@ -13,6 +13,21 @@
 </div>
   <!-- <div id="instructions"></div> -->
 
+<% if params[:complete] == "true" %>
+  <% current_user.routes_completed += 1 %>
+  <% current_user.distance_cycled += @cycle_route.total_distance %>
+  <% @attempt.end_time = DateTime.current %>
+  <% @attempt.save %>
+  <% current_user.save %>
+  <!-- <script>document.getElementById("route-time").insertAdjacentHtml("beforeend", "some seconds")</script> -->
+  <script>
+    document.addEventListener("turbolinks:load", () => {
+      document.getElementById("map-btn").click()
+    })
+  </script>
+<% end %>
+
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -23,9 +38,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5> Distance Cycled: 12km 🕍</h5>
-        <h5> Points Earned: 135 💎</h5>
-        <h5> Trophies Won: 2 💰</h5>
+        <h5>Distance Cycled: <%= @cycle_route.total_distance %> mi</h5>
+        <h5 id="route-time">Time to complete route: <%= (@attempt.end_time&.to_datetime - @attempt.start_time.to_datetime).to_i/1000 if @attempt.end_time %> seconds</h5>
       </div>
 
       <div class="modal-footer justify-content-center">
@@ -37,16 +51,6 @@
   </div>
 </div>
 
-<% if params[:complete] == "true" %>
-  <% current_user.routes_completed += 1 %>
-  <% current_user.distance_cycled += @cycle_route.total_distance %>
-  <% current_user.save %>
-  <script>
-    document.addEventListener("turbolinks:load", () => {
-      document.getElementById("map-btn").click()
-    })
-  </script>
-<% end %>
 <!-- When you complete an attempt, you need to update the users
       total distance traveled, routes completed, and mark the current
       attempt as complete.

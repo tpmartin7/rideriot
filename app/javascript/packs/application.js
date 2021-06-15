@@ -28,9 +28,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
+
+import { routeTime } from '../components/route_time'
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   setTimeout(() => {  initMapbox(); }, 1000);
+  routeTime();
   // initMapbox();
 });
