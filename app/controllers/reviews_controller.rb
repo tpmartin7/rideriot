@@ -6,11 +6,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @params = params[:review]
-    @review = Review.new(comment: @params[:comment], rating: @params[:rating], cycle_route_id: params[:cycle_route_id])
+    @review = Review.new(review_params)
+    @cycle_route = CycleRoute.find(params[:cycle_route_id])
+    @review.cycle_route = @cycle_route
     @review.user_id = current_user.id
-    @review.save!
-    redirect_to cycle_route_path(params[:cycle_route_id], anchor: "review-#{@review.id}")
+    if @review.save
+      redirect_to cycle_route_path(params[:cycle_route_id], anchor: "review-#{@review.id}")
+    else
+      flash[:alert] = "something went wrong"
+      render :new
+    end
   end
 
   # def destroy
@@ -20,6 +25,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-
+    params.require(:review).permit(:comment, :rating)
   end
 end
