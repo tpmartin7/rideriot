@@ -34,6 +34,7 @@ class AttemptsController < ApplicationController
     @attempt.end_time = DateTime.current
     @attempt.save
     current_user.set_badges
+    current_user.points = (current_user.distance_cycled / current_user.routes_completed).to_i
     current_user.save
     redirect_to attempt_path(params[:id], complete: true)
   end

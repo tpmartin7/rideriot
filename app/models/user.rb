@@ -12,6 +12,7 @@ class User < ApplicationRecord
   def init
     self.distance_cycled ||= 0.0
     self.routes_completed ||= 0
+    self.points ||= 0
   end
 
   def set_badges
