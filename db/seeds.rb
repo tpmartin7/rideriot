@@ -13,7 +13,7 @@ User.destroy_all
 Location.destroy_all
 
 
-admin = User.create!(email: 'admin@rideriot.club', password: '123456', name: "Kiz", points: 39, routes_completed: 3, distance_cycled: 47) unless admin = User.find_by_email('admin@rideriot.club')
+admin = User.create!(email: 'admin@rideriot.club', password: '123456', name: "Kiz", points: 0, routes_completed: 0, distance_cycled: 0) unless admin = User.find_by_email('admin@rideriot.club')
 kiz = URI.open('https://res.cloudinary.com/duae8ljpg/image/upload/v1623687480/rideriot/kieryn_o9alpo.jpg')
 admin.photo.attach(io: kiz, filename: "kiz.jpg", content_type: 'image/jpg')
   # Remember you shouldnt destroy in the seed file in normal circumstances.
