@@ -15,22 +15,25 @@
   background-color: rgba(255, 255, 255, 0.9);
   overflow-y: scroll;
   font-family: sans-serif;
-  font-size: 1.2em;
-  line-height: 2em;
+  font-size: 1.0em;
+  // line-height: 1.2em;
   border-top: 3px solid #5857D5;
   padding-left: 30px;
   padding-top: 10px;
 }
 
+
   #map-btn {
     position: relative;
     z-index: -2;
-    margin-left: 150px;
+    margin-left: 155px;
     margin-bottom: 30px;
     position: fixed;
-    right: 0;
-    bottom: 176px;
-    left: 151px;
+    right: -5px;
+    bottom: 185px;
+    left: -64px;
+    width: 200px;
+    font-size: 2em;
   }
 
 .duration {
@@ -38,7 +41,7 @@
 }
 
 .marker {
-  background-image: url('bicycle.png');
+  background-image: url('map-pin.png');
   background-size: cover;
   width: 40px;
   height: 40px;

@@ -18,11 +18,12 @@
 .cards {
   text-align: center;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
   // color: $primary;
   // padding: 10px;
   margin-top: 12px;
   margin-bottom: 12px;
+  background-color: white;
   // border: 2px solid $primary;
   .btn-outline-primary {
     color: $primary;
