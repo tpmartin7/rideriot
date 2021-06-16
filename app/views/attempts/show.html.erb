@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div id="instructions"></div>
+  <div id="instructions" class="li-element"></div>
 </div>
 <% if params[:complete] == "true" %>
   <script>
@@ -44,8 +44,8 @@
       </div>
       <div class="modal-footer justify-content-center">
         <%= link_to "Collect Rewards", user_path(current_user), method: :get, class: 'btn btn-primary', id: "btn-modal" %>
-        <%= link_to "Write Review", new_cycle_route_review_path(@cycle_route), method: :get, class: 'btn btn-success', id: "btn-modal-2" %>
-        <%= link_to "Choose Route", root_path, method: :get, class: 'btn btn-outline-primary', id: "btn-modal" %>
+        <%= link_to "Write Review", new_cycle_route_review_path(@cycle_route), method: :get, class: 'btn', id: "btn-modal-2" %>
+        
       </div>
     </div>
   </div>

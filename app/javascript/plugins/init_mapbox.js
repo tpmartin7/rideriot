@@ -78,7 +78,7 @@ const initMapbox = () => {
                 },
                 'paint': {
                   'line-color': '#5857D5',
-                  'line-width': 6
+                  'line-width': 4
                 }
               });
 

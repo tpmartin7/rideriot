@@ -1,0 +1,5 @@
+meta_product_name: "RideRiot"
+meta_title: "RideRiot - Cycle with friends and see London"
+meta_description: "Search London for fun cycle routes, see the sites and achieve rewards"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@LeWagonLondon"   # required for Twitter Cards

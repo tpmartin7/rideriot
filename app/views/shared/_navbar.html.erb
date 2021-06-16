@@ -1,6 +1,6 @@
 <div class="navbar fixed-bottom navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-home" do %>
-    <%= image_tag "bicycle.png", class: "icon" %>
+    <%= image_tag "home-icon.png", class: "icon" %>
     <% end %>
 
   <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
@@ -12,6 +12,6 @@
   <% end %>
 
   <%= link_to cycle_route_path(CycleRoute.pluck(:id).sample), class: "navbar-home" do %>
-    <%= image_tag "shuffle-one.png", class: "icon" %>
+    <%= image_tag "shuffle-arrows.png", class: "icon" %>
   <% end %>
 </div>
