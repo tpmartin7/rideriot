@@ -1,9 +1,11 @@
-<div class="container simple_form_review">
-  <div class="justify-content-center mt-4">
-      <%=  simple_form_for [ @cycle_route, @review ]  do |f| %>
-        <%= f.input :comment, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'}, placeholder: 'Write a review', label: false, class: "simple_form" %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate this route", label: false %>
-        <%= f.submit class: "button-center" %>
-      <% end %>
-    </div>
+<div class="review-style">
+  <div class="container simple_form_review">
+    <div class="justify-content-center mt-4">
+        <%=  simple_form_for [ @cycle_route, @review ]  do |f| %>
+          <%= f.input :comment, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'}, placeholder: 'Write a review', label: false, class: "simple_form" %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate this route", label: false %>
+          <%= f.submit class: "review-btn" %>
+        <% end %>
+      </div>
+  </div>
 </div>
