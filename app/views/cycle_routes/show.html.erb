@@ -7,7 +7,7 @@
     </div>
       <div class="d-flex justify-content-between p-3">
         <div class="col-xs-8">
-          <h5 class="mb-0">Distance: <%= @cycle_route.total_distance %> km</h5>
+          <h5 class="mb-0">Distance: <%= @cycle_route.total_distance %> mi</h5>
         </div>
         <div class="col-xs-4">
           <% if @reviews.present? %>
@@ -33,7 +33,7 @@
     </div>
     <div class="container">
       <div class="row justify-content-center mb-3 py-3">
-       
+
         <%= link_to "Start Route", cycle_route_attempts_path(@cycle_route), method: :post, class: 'btn btn-primary mr-2 cust-width', id: "btn-modal" %>
 
         <%= link_to "Back", cycle_routes_path(address_form:{address: params.dig(:address_form,:address)}), class: 'btn btn-outline-primary ml-2 cust-width', id: "btn-modal-2" %>
