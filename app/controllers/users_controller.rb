@@ -15,5 +15,8 @@ class UsersController < ApplicationController
     user_points = @user.points
     @friend_hash[user_name] = user_points
     @sorted_friends = @friend_hash.sort_by{|k, v| -v}
+
+    @attempts = Attempt.where(user: @user).order(start_time: :desc)
+
   end
 end

@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center">
+  <div class="w-100">
+    <div class='p-2'>
+      <p class="h3 mt-3"><%= attempt.cycle_route.name %></p>
+        <p class="text-muted">🚲 on the
+        <%= attempt.created_at.strftime("%d#{if attempt.created_at.day == 1 then 'st' elsif attempt.created_at.day == 2 then 'nd' elsif attempt.created_at.day == 3 then 'rd' else 'th' end} %b") %>
+        at <%= attempt.start_time.strftime("%l%P") %>
+        </p>
+      <div class="d-flex row mb-2 justify-content-between">
+        <div class="col col-4 border-right">
+          <p class="mb-0"><small>Distance</small></p>
+          <p class="mb-0 h5"><%= attempt.cycle_route.total_distance %> mi</p>
+        </div>
+        <div class="col col-4 border-right">
+          <p class="mb-0 text-left"><small>Time</small></p>
+          <p class="mb-0 h5 text-left"><%= attempt.end_time == nil ? "not complete" : "#{(attempt.end_time - attempt.start_time).round(2)} min" %></p>
+        </div>
+        <div class="col col-4">
+          <p class="mb-0 text-left"><small>Completed</small></p>
+          <p class="mb-0 h5 text-left" ><%= attempt.user.routes_completed %> routes</p>
+        </div>
+      </div>
+    </div>
+      <%=cl_image_tag (attempt.cycle_route.map_image), class: "w-100 mb-2"%>
+  </div>
+</div>
+

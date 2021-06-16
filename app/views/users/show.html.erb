@@ -1,97 +1,105 @@
-<div class="container">
-  <div class="cards">
-    <ul>
-      <li>Distance cycled: <span class="points"><%= @user.distance_cycled %> mi</span></li>
-      <li>Cycle Routes completed: <span class="points"><%= @user.routes_completed %></span></li>
-    </ul>
+<div class="d-flex justify-content-between pt-4">
+  <div class="col-9">
+    <p class="h1">My Stats</p>
+    <p style="color: #5857D5">Current points: <%= current_user.points %></p>
   </div>
-  <div class="cards">
-    <div class="achievement-list">
-      <ul>
-        <% if current_user.gold %>
-          <li>
-            <%= cl_image_tag current_user.badges[:gold][:cl_image] %>
-            <%= current_user.badges[:gold][:desc] %>
-            badge earned at <%= current_user.gold %>
-          </li>
-        <% end %>
-        <% if current_user.silver %>
-          <li>
-            <%= cl_image_tag current_user.badges[:silver][:cl_image] %>
-            <%= current_user.badges[:silver][:desc] %>
-            badge earned at <%= current_user.silver %>
-          </li>
-        <% end %>
-        <% if current_user.bronze %>
-          <li>
-            <%= cl_image_tag current_user.badges[:bronze][:cl_image] %>
-            <%= current_user.badges[:bronze][:desc] %>
-            badge earned at <%= current_user.bronze %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="cards" id="leaderboard">
-    <h2>Friend's Leaderboard</h2>
-
-
-    <%= image_tag "plus.png", alt: "alttext", class: "add-modal-button", data: { toggle: "modal", target: "#AddModal" } %>
-    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add your friend</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for :friend_form, url: add_friend_path, method: :get do |f| %>
-              <%= f.input :user_id, collection: User.pluck(:name, :id) %>
-              <%= f.submit "Add" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <%= image_tag "remove.png", alt: "alttext", class: "delete-modal-button", data: { toggle: "modal", target: "#DeleteModal" }  %>
-    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete a friend</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for :friend_form, url: delete_friend_path, method: :delete do |f| %>
-              <%= f.input :user_id, collection: User.pluck(:name, :id) %>
-              <%= f.submit "Delete" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <% @iterator = 1 %>
-    <% @sorted_friends.each do |name, points| %>
-      <div class="row">
-        <div class="col friend-row">
-          <strong><%= @iterator %>. </strong><%= name %>
-        </div>
-        <div class="col friend-row">
-           is on <span class="points"><%= points %>  </span>points
-        </div>
-      </div>
-      <% @iterator += 1 %>
-    <% end %>
-
-  </div>
-  
-    <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class: "btn btn-primary button-center"%>
-
 </div>
+<div class="">
+  <% attempt = @attempts.first%>
+  <%= render "dashboard_card", attempt: attempt %>
+</div>
+
+<div class="p-2 mb-5">
+  <p class="h3 py-3 text-center">Achievements Unlocked</p>
+  <div class="achievements d-flex justify-content-between">
+    <div class="col-4">
+      <%= current_user.bronze == nil ? image_tag("medal (2)-grey.png", size: '80') : image_tag("medal (2).png", size: '80') %>
+    </div>
+    <div class="col-4">
+      <%= current_user.silver == nil ? image_tag("medal (1)-grey.png", size: '80') : image_tag("medal (1).png", size: '80') %>
+    </div>
+    <div class="col-4">
+      <%= current_user.gold == nil ? image_tag("medal-grey.png", size: '80') : image_tag("medal.png", size: '80') %>
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Previous Cycles</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Race Friends</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="overflow-auto" style="height: 300px;">
+      <% @attempts.each do |attempt| %>
+        <%= render "dashboard_card", attempt: attempt %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="" id="leaderboard">
+      <h2 class="mt-4 pb-3">Friend's Leaderboard</h2>
+      <%= image_tag "plus.png", alt: "alttext", class: "add-modal-button", data: { toggle: "modal", target: "#AddModal" } %>
+      <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add your friend</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for :friend_form, url: add_friend_path, method: :get do |f| %>
+                <%= f.input :user_id, collection: User.pluck(:name, :id) %>
+                <%= f.submit "Add" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <%= image_tag "remove.png", alt: "alttext", class: "delete-modal-button", data: { toggle: "modal", target: "#DeleteModal" }  %>
+      <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete a friend</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for :friend_form, url: delete_friend_path, method: :delete do |f| %>
+                <%= f.input :user_id, collection: User.pluck(:name, :id) %>
+                <%= f.submit "Delete" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% @iterator = 1 %>
+      <% @sorted_friends.each do |name, points| %>
+        <div class="row">
+          <div class="col friend-row">
+            <strong><%= @iterator %>. </strong><%= name %>
+          </div>
+          <div class="col friend-row">
+             is on <span class="points"><%= points %>  </span>points
+          </div>
+        </div>
+        <% @iterator += 1 %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
