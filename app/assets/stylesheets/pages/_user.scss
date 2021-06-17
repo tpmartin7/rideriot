@@ -1,6 +1,8 @@
 #leaderboard {
   height: 200px;
   position: relative;
+      padding-top: 32px;
+    padding-left: 15px;
 }
 
 .points {
@@ -21,16 +23,19 @@
 
 .add-modal-button {
   position: absolute;
-  bottom: 13px;
-  right: 39px;
-  height: 20px;
+  bottom: 143px;
+  right: 172px;
+  height: 50px;
+ 
+  
 }
 
 .delete-modal-button {
   position: absolute;
-  bottom: 13px;
-  right: 13px;
-  height: 20px;
+  bottom: 151px;
+  right: 137px;
+  height: 30px;
+
 }
 
 .user-trophies {
