@@ -1,9 +1,9 @@
 <div class="navbar fixed-bottom navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-home" do %>
-    <%= image_tag "home-icon.png", class: "icon" %>
+    <%= cl_image_tag "rideriot/goldHome_n1vqo6.png", class: "icon" %>
     <% end %>
 
-  <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home rel" do %>
+  <%= link_to current_user ? user_path(current_user) : new_user_session_path, class: "navbar-home" do %>
     <% if user_signed_in? && current_user.photo.attached? %>
       <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar user") %>
     <% else %>
@@ -12,6 +12,6 @@
   <% end %>
 
   <%= link_to cycle_route_path(CycleRoute.pluck(:id).sample), class: "navbar-home" do %>
-    <%= image_tag "shuffle-arrows.png", class: "icon" %>
+    <%= cl_image_tag "rideriot/goldArrow_x9gss8.png", class: "icon" %>
   <% end %>
 </div>

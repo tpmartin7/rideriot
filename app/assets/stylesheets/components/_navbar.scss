@@ -17,8 +17,16 @@
 }
 
 .icon {
-  height: 30px;
-  width: 30px;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
+.navbar-home {
+  background-color: $primary;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-bottom: 0.7rem;
+  padding-top: 0.7rem;
+  border-radius: 50%;
+}
 
