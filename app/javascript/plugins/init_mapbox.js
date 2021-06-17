@@ -35,10 +35,8 @@ const initMapbox = () => {
 
       var canvas = map.getCanvasContainer();
       const urlMarkers = markers.map((item) => { return `${item.lng},${item.lat}`}).join(';')
-      console.log(urlMarkers);
 
        var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + urlMarkers + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
-       console.log('hello')
 
        fetch(url)
        .then(response => response.json())
