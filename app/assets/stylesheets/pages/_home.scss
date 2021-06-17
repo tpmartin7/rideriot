@@ -3,7 +3,10 @@
   width: 100vw;
   background-size: cover;
   background-position: center;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  // position: relative;
+  top: 0px;
 }
 
 #home-title {
