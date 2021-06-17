@@ -27,17 +27,17 @@ class User < ApplicationRecord
       bronze: {
         time_earned: bronze,
         desc: "You completed your first route!",
-        cl_image: "rideriot/bronzeTrophy_wwtpnf.png"
+        cl_image: "medal (2).png"
       },
       silver: {
         time_earned: silver,
         desc: "5 Routes Completed!",
-        cl_image: "rideriot/silverTrophy_ywnxo2.png"
+        cl_image: "medal (1).png"
       },
       gold: {
         time_earned: gold,
         desc: "20 routes completed!",
-        cl_image: "rideriot/goldTrophy_qcx9kq.png"
+        cl_image: "medal.png"
       }
     }
   end
