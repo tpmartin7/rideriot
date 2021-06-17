@@ -10,14 +10,18 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-weight: 600;
+  // font-size: 0.7rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: #ECEAFF;
-  color: #7E73FF;
-  border: 1px solid #7E73FF;
-  margin-right: 0.6rem;
-  margin-bottom: 0.4rem;
+  background-color: rgba(lightgrey,0.7);
+  color: #fff;
+  // border: 1px solid #7E73FF;
+  // margin-right: 0.6rem;
+  // margin-bottom: 0.4rem;
+  margin: 1rem;
+  width: 27vw;
+  text-align: center;
 }
 
 .tag-selector:checked + label {
@@ -42,6 +46,34 @@
 
 .red-pill {
   background-color: $red-pill;
+}
+
+.green-pill {
+  background-color: $green;
+}
+
+.orange-pill {
+  background-color: $orange;
+}
+
+.tag-selector:checked.blue-pill + label {
+  background-color: rgba($blue,0.6);
+  color: white;
+}
+
+.tag-selector:checked.red-pill + label {
+  background-color: rgba($red,0.6);
+  color: white;
+}
+
+.tag-selector:checked.green-pill + label {
+  background-color: rgba($green,0.6);
+  color: white;
+}
+
+.tag-selector:checked.orange-pill + label {
+  background-color: rgba($orange,0.6);
+  color: white;
 }
 
 #tag-title {

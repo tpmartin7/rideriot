@@ -1,43 +1,31 @@
-
-<div class="container" id="home-main">
-  <div class="row col-6">
-      <div class="container" id="hero-text">
-        <h1><strong>RideRiot</strong></h1>
-        <h4>Explore.</h4>
-        <h4>Cycle.</h4>
-        <h4>Enjoy.</h4>
+<!-- grayscale path: "rideriot/splash_gray_swvllz.png" -->
+<!-- 2 tone path: "rideriot/splashv1_lxvhfu.png" -->
+<div id="home-background" style="background-image: url(<%= cl_image_path "rideriot/splash_gray_pcsm9x.png"%>);">
+  <div id="home-title">
+    <h1 id="ride">ride</h1>
+    <h1 id="riot">riot</h1>
+  </div>
+  <div id="home-blurb">
+    <p>Try new cycle routes</p>
+    <p>Earn achievements</p>
+    <p>Compete with friends</p>
+  </div>
+  <div id="home-search-form" class="p-3">
+    <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
+      <%= f.input :address, label: false, placeholder: "Enter Starting Address" %>
+      <div class="d-flex">
+        <%= f.input @tags[0].name, as: :boolean, input_html: { class: "tag-selector green-pill" },
+                item_wrapper_class: 'tag-item' %>
+        <%= f.input @tags[1].name, as: :boolean, input_html: { class: "tag-selector blue-pill" },
+                item_wrapper_class: 'tag-item' %>
       </div>
-      <div class="container" id="home-image-bicycle">
-          <%= image_tag "bicycle.svg", height: 150, width: 150 %>
+      <div class="d-flex">
+        <%= f.input @tags[2].name, as: :boolean, input_html: { class: "tag-selector orange-pill" },
+                item_wrapper_class: 'tag-item' %>
+        <%= f.input @tags[3].name, as: :boolean, input_html: { class: "tag-selector red-pill" },
+              item_wrapper_class: 'tag-item' %>
       </div>
-
-      <%= simple_form_for :address_form, method: :get, url: cycle_routes_path do |f| %>
-          <%= f.input :address, label: false, placeholder: "Enter Address" %>
-        <div class="tags-container">
-          <% @tags[0..1].each do |tag| %>
-            <%= f.input tag.name, as: :boolean, input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-          <% end %>
-        </div>
-        <div class="tags-container">
-          <% @tags[2..3].each do |tag| %>
-            <%= f.input tag.name, as: :boolean, input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-          <% end %>
-        </div>
-          <%= f.submit "Find Routes", class: "btn btn-primary w-100" %>
-      <% end %>
-
-      <div class="container" id="home-image-iphone">
-          <%= image_tag "iphone.svg", height: 75, width: 75 %>
-      </div>
-      <%= link_to current_user ? user_path(current_user) : new_user_session_path do %>
-        <% if user_signed_in? && current_user.photo.attached? %>
-          <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar user") %>
-        <% else %>
-          <%= image_tag "man.png", class: "avatar user" %>
-        <% end %>
-      <% end %>
+        <%= f.submit "Find Nearby Routes", class: "btn btn-primary w-100 mt-3" %>
+    <% end %>
   </div>
 </div>
-
