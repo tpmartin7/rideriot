@@ -1,17 +1,12 @@
 <div class="container">
   <div class="d-flex justify-content-between pt-4">
     <div class="col-9">
-      <p class="h1">My Stats</p>
-      <p style="color: #5857D5">Current points: <%= current_user.points %></p>
+      <p class="h1"> <%= current_user.name  %></p>
+      <p class="user-point-style"> <%= current_user.points %> pts.</p>
     </div>
   </div>
-  <div class="">
-    <% attempt = @attempts.first%>
-    <%= render "dashboard_card", attempt: attempt %>
-  </div>
-
-  <div class="p-2 mb-5">
-    <p class="h3 py-3 text-center">Achievements Unlocked</p>
+  <div class="p-2 mb-5 user-trophies">
+    
     <div class="achievements d-flex justify-content-between">
       <div class="col-4">
         <%= current_user.bronze == nil ? image_tag("medal (2)-grey.png", size: '80') : image_tag("medal (2).png", size: '80') %>
@@ -24,6 +19,11 @@
       </div>
     </div>
   </div>
+  <div class="latest-attempt">
+    <% attempt = @attempts.first%>
+    <%= render "dashboard_card", attempt: attempt %>
+  </div>
+
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
