@@ -98,7 +98,7 @@ GEM
     execjs (2.7.0)
     faker (2.18.0)
       i18n (>= 1.6, < 2)
-    ffi (1.15.2)
+    ffi (1.15.3)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     geocoder (1.6.7)
@@ -137,6 +137,7 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.7)
+    nokogiri (1.11.7-x86_64-darwin)
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -267,7 +268,7 @@ PLATFORMS
   x86_64-darwin
   x86_64-darwin-20
   x86_64-linux
-
+  
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
