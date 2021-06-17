@@ -48,10 +48,10 @@ class CycleRoutesController < ApplicationController
 
   def seed_images
     {
-      'Victoria Park' => "rideriot/vicPark_cerwb5.png",
-      'Regents Canal' => "rideriot/regCanal_jj3i9r.png",
-      'CS1' => "rideriot/cs1_vvgyjl.png",
-      'Tower of London' => "rideriot/tower_u3rjsc.png"
+      'Cruise through Victoria Park' => "rideriot/vicPark_cerwb5.png",
+      'Regents Canal Towpath' => "rideriot/regCanal_jj3i9r.png",
+      "London's First Cycle Highway" => "rideriot/cs1_vvgyjl.png",
+      'See the Tower of London' => "rideriot/tower_u3rjsc.png"
     }
   end
 end

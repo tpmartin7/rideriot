@@ -28,7 +28,7 @@ tags.each_value { |tag| tag.save }
 
 cycle_routes = {
   vicPark: CycleRoute.new(
-    name: "Victoria Park",
+    name: "Cruise through Victoria Park",
     start_point: "Goodrich House, Sewardstone Road, London",
     end_point: "East Village, Stratford, London",
     map_image: "rideriot/vicMap_ndt8xg.png",
@@ -37,7 +37,7 @@ cycle_routes = {
     user: admin
   ),
   regents: CycleRoute.new(
-    name: "Regents Canal",
+    name: "Regents Canal Towpath",
     start_point: "139 Graham St, N1 8LB, London",
     end_point: "84 Victoria Park Rd E9 7JL",
     map_image: "rideriot/regentsMap_zrldo1.png",
@@ -46,7 +46,7 @@ cycle_routes = {
     user: admin
   ),
   cs1: CycleRoute.new(
-    name: "CS1",
+    name: "London's First Cycle Highway",
     start_point: "Finsbury Circus, EC2M 7DT, London",
     end_point:  "Finsbury Circus, EC2M 7DT, London",
     map_image: "rideriot/cs1Map_lqarfs.png",
@@ -55,7 +55,7 @@ cycle_routes = {
     user: admin
   ),
   tower: CycleRoute.new(
-    name: "Tower of London",
+    name: "See the Tower of London",
     start_point: "Tower of London, London EC3N 4AB",
     end_point: "Montfichet Rd E20 1EJ",
     map_image: "rideriot/towerMap_qsrsdt.png",
@@ -67,7 +67,7 @@ cycle_routes = {
 
 cycle_routes.each_value { |cycle_route| cycle_route.save }
 
-vic_park = CycleRoute.find_by(name: 'Victoria Park')
+vic_park = cycle_routes[:vicPark]
 location = Location.new(name: 'New Spitalfields Market', address: '23 Sherrin Road E10 5SQ London', description: 'Britain’s premier wholesale fruit, vegetable and flower market', cycle_route_id: vic_park.id)
 location.save
 location = Location.new(name: 'Walthamstow Wetlands', address: '2 Forest Road N17 9NH London', description: 'In the Lee Valley a cluster of reservoirs have been transformed into Europe’s largest urban wetland reserve', cycle_route_id: vic_park.id)
@@ -77,11 +77,11 @@ location.save
 location = Location.new(name: 'By the Bridge Cafe', address: '91 Brick Lane E1 6QL London', description: "A microcosm of London's shifting ethnic patterns, the area around Brick Lane in East London was once associated with poor slums and the scene of the crime for the Jack the Ripper murders.", cycle_route_id: vic_park.id)
 location.save
 
-regents_canal = CycleRoute.find_by(name: 'Regents Canal')
+regents_canal = cycle_routes[:regents]
 location = Location.new(name: 'Spitalfields', address: '283a Kingsland Rd E2 8AS London', description: 'Newly opened in 2014, By the Bridge hopes to bring people together with a hankering for coffee and an appreciation for quality service and a warm smile!', cycle_route_id: regents_canal.id)
 location.save
 
-cs1 = CycleRoute.find_by(name: 'CS1')
+cs1 = cycle_routes[:cs1]
 location = Location.new(name: 'Bloomsbury House', address: '40 Great Russell Street WC1B 3DA London', description: 'Bloomsbury House is an historic Grade II listed building conveniently located between Holborn and Russel Sqaure. The house was built in 1887.', cycle_route_id: cs1.id)
 location.save
 location = Location.new(name: 'Emirates Stadium', address: '117 Benwell Road N7 7BW London', description: 'The Emirates Stadium is a football stadium in Highbury, England, and the home of Arsenal.', cycle_route_id: cs1.id)
@@ -89,7 +89,7 @@ location.save
 location = Location.new(name: 'London Bike Kitchen', address: '16 Whitmore Road N1 5QA London', description: 'The London Bike Kitchen is a mechanic owned & operated open DIY workshop where you can work on your own bike instead of giving it to someone else. Consider us a Do-It-Together education space.', cycle_route_id: cs1.id)
 location.save
 
-tower_of_london = CycleRoute.find_by(name: 'Tower of London')
+tower_of_london = cycle_routes[:tower]
 location = Location.new(name: 'Spitalfields', address: '56 Brushfield Street E1 6AA London', description: 'At its heart, Spitalfields ‘Traders’ Market is an uncompromising array of independent stall holders, showcasing incredible hand-crafted and hard-to-find pieces that make every trip special and memorable.', cycle_route_id: tower_of_london.id)
 location.save
 location = Location.new(name: 'Saint Mary Axe', address: 'St Mary Axe E15 2SN London', description: 'St Mary Axe was a medieval parish in the City of London whose name survives as that of the street which formerly occupied it.', cycle_route_id: tower_of_london.id)

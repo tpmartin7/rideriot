@@ -1,10 +1,19 @@
 <div class="container">
   <% if @cycle_routes.empty? %>
     <h2>No routes found matching criteria</h2>
+  <% else %>
+    <div id="results-count">
+      <h5 class="m-0 p-2"> <%= @cycle_routes.size %> routes found near you</h5>
+    </div>
   <% end %>
   <% @cycle_routes.each do |cycle_route| %>
     <div class="cards">
       <a class="card-link" href="<%= cycle_route_path(cycle_route, address_form:{address: params.dig(:address_form,:address)}) %>">
+
+          <div class="name-banner-index">
+            <h5 class="m-0 p-2"><%= cycle_route.name %></h2>
+          </div>
+
         <div id="carousel<%=cycle_route.id%>" class="rel carousel slide" data-ride="carousel">
           <!-- if photos attached, add to carousel. -->
           <!-- Need to iterate over photos to create li's -->
@@ -20,9 +29,8 @@
               <%=cl_image_tag (cycle_route.map_image) %>
             </div>
           </div>
-          <div class="name-banner-index">
-            <h2 class="m-0 p-2"><%= cycle_route.name %></h2>
-          </div>
+
+
         </div>
         <div class="cycle-route-infos d-flex justify-content-between p-1">
           <p><strong>Distance: <%= cycle_route.total_distance %> mi</strong></p>
@@ -36,10 +44,10 @@
                   <% @rating = (cycle_route.reviews.sum(&:rating).to_f / cycle_route.reviews.length).round %>
                 <% end %>
                 <% @rating.times do |f| %>
-                  <%= image_tag "star.png", class: "star-sml" %>
+                  <%= cl_image_tag "rideriot/goldStar_iwoh7m.png", class: "star-sml" %>
                 <% end %>
                 <% (5 - @rating).times do |f| %>
-                  <%= image_tag "blank-star.png", class: "star-sml" %>
+                  <%= cl_image_tag "rideriot/blankGoldStar_irgxik.png", class: "star-sml" %>
                 <% end %>
               </div>
             </div>
