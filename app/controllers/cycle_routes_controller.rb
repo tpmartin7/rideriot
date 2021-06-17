@@ -48,10 +48,17 @@ class CycleRoutesController < ApplicationController
 
   def seed_images
     {
-      'Victoria Park' => "rideriot/vicPark_cerwb5.png",
-      'Regents Canal' => "rideriot/regCanal_jj3i9r.png",
-      'CS1' => "rideriot/cs1_vvgyjl.png",
-      'Tower of London' => "rideriot/tower_u3rjsc.png"
+      'Victoria Park' => "rideriot/victoria-park-scene_j4jbvl.jpg",
+      'Regents Canal' => "rideriot/regents-canal-scene_g32jxn.jpg",
+      'CS1' => "rideriot/cs1-scene_x2waif.jpg",
+      'Tower of London East' => "rideriot/tole-scene_ssysqj.jpg",
+      "Battersea Park" => "rideriot/battersea-park-scene_frnhro.jpg",
+      'Limehouse Basin' => "rideriot/limehouse-basin-scene_nzlpi2.jpg",
+      'Big Ben' => "rideriot/big-ben-scene_n2dww2.jpg",
+      'Finsbury Park' => "rideriot/finsbury-park-scene_miuqwn.jpg",
+      'Regents Park Circular' => "rideriot/Regents-Park_osihzj.jpg",
+      'Tower of London West' => "rideriot/tower-of-london-west-scene_pmey7z.jpg",
+      'Hyde Park Loop' => "rideriot/hyde-park-loop-scene_zdj7ts.jpg",
     }
   end
 end
