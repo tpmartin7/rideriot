@@ -49,9 +49,9 @@
           <% if cycle_route.tags.empty? %>
             <p><strong>No tags for this route yet.</strong></p>
           <% end %>
-          <p id="tag-title">Tags</p>
+          <!-- <p id="tag-title">Tags</p> -->
           <% cycle_route.tags.each do |tag| %>
-            <p class="tag-display <%=['blue-pill', 'red-pill'].sample%>"><%= tag.name %></p>
+            <p class="tag-display <%= tag.name.downcase %>"><%= tag.name %></p>
           <% end %>
         </div>
       </a>
