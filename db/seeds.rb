@@ -21,7 +21,7 @@ tags = {
   scenic: Tag.new(name: 'Scenic'),
   quiet: Tag.new(name: 'Quiet'),
   historic: Tag.new(name: 'Historic'),
-  challenging: Tag.new(name: 'Challenging')
+  challenging: Tag.new(name: 'Challenge')
 }
 
 tags.each_value { |tag| tag.save }

@@ -11,6 +11,7 @@ $light-gray: #F4F4F4;
 $main-color: #5857D5;
 $secondary-color: #ED3A50;
 $text-color: #0B1E44;
-$red-pill: rgba(253, 16, 21, 0.6);
-$blue-pill: rgba(22, 127, 251, 0.6);
-
+$red-pill: rgba($red, 0.6);
+$blue-pill: rgba($blue, 0.6);
+$green-pill: rgba($green, 0.6);
+$orange-pill: rgba($orange, 0.6);
