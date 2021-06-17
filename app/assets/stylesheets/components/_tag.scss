@@ -37,7 +37,9 @@
   padding: 0.1rem 0.5rem;
 
   color: white;
-  margin: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 .quiet {
@@ -49,11 +51,11 @@
 }
 
 .scenic {
-  background-color: $green-pill;
+  background-color: $green;
 }
 
 .historic {
-  background-color: $orange-pill;
+  background-color: rgba($orange, 0.8);
 }
 
 .tag-selector:checked.blue-pill + label {

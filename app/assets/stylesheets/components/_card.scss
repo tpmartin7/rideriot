@@ -36,13 +36,13 @@
 }
 
 .name-banner-index {
-  background-color: rgba(88, 87, 213, 0.7);
+  background-color: rgba(88, 87, 213, 0.8);
   color: white;
   width: 100%;
 }
 
 #results-count {
-  background-color: $orange-pill;
+  background-color: rgba($orange, 0.8);
   color: white;
   width: 100%;
 
@@ -50,5 +50,7 @@
 }
 
 .cycle-route-infos {
-
+  p{
+    margin-bottom: 0px;
+  }
 }
