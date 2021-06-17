@@ -1,9 +1,9 @@
   <div class="container">
   <div class="cards" style="text-align: center;">
+    <div class="name-banner-index">
+      <h5 class="m-0 p-2"> <%= @cycle_route.name %> </h2>
+    </div>
     <div class="show-photo d-flex align-items-center justify-content-center" style='background-image: url("http://res.cloudinary.com/duae8ljpg/image/upload/v1/<%= @cycle_route.map_image %>"); height: 200px; background-size: cover;'>
-      <div class="name-banner">
-        <h2 class="m-0 p-2"> <%= @cycle_route.name %> </h2>
-      </div>
     </div>
       <div class="d-flex justify-content-between p-3">
         <div class="col-xs-8">
@@ -15,10 +15,10 @@
               <div class="row">
                 <div class="col">
                   <% @rating.times do |f| %>
-                    <%= image_tag "star.png", class: "star-sml" %>
+                    <%= cl_image_tag "rideriot/goldStar_iwoh7m.png", class: "star-sml" %>
                   <% end %>
                   <% @blank_stars.times do |f| %>
-                    <%= image_tag "blank-star.png", class: "star-sml" %>
+                    <%= cl_image_tag "rideriot/blankGoldStar_irgxik.png", class: "star-sml" %>
                   <% end %>
                 </div>
               </div>
@@ -49,11 +49,11 @@
         <p class="mt-0 mb-0">"<%= review.comment %>"</p>
         <div class="mb-4">
           <% review.rating.times do |f| %>
-            <%= image_tag "star.png", class: "star-sml" %>
+            <%= cl_image_tag "rideriot/goldStar_iwoh7m.png", class: "star-sml" %>
           <% end %>
           <% @num = 5 - review.rating %>
           <% @num.times do |f| %>
-            <%= image_tag "blank-star.png", class: "star-sml" %>
+            <%= cl_image_tag "rideriot/blankGoldStar_irgxik.png", class: "star-sml" %>
           <% end %>
         </div>
       <% end %>
