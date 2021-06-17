@@ -30,7 +30,8 @@
       </div>
       <div class="modal-body">
         <h5>Distance Cycled: <%= @cycle_route.total_distance %> mi</h5>
-        <h5 id="route-time">Time to complete route: <%= (@attempt.end_time&.to_datetime - @attempt.start_time.to_datetime).to_i/1000 if @attempt.end_time %> seconds</h5>
+        <!-- On the next line: Minutes Sould be seconds (this was just for the demo) -->
+        <h5 id="route-time">Time to complete route: <%= ((@attempt.end_time&.to_datetime - @attempt.start_time.to_datetime)*24*60*60).to_i if @attempt.end_time %> minutes</h5>
         <% current_user.badges.each_value do |info| %>
           <% next unless info[:time_earned] %>
           <% if info[:time_earned] > DateTime.now - 5.seconds %>
@@ -45,7 +46,7 @@
       <div class="modal-footer justify-content-center">
         <%= link_to "Collect Rewards", user_path(current_user), method: :get, class: 'btn btn-primary', id: "btn-modal" %>
         <%= link_to "Write Review", new_cycle_route_review_path(@cycle_route), method: :get, class: 'btn', id: "btn-modal-2" %>
-        
+
       </div>
     </div>
   </div>
