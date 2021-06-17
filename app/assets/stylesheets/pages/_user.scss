@@ -50,3 +50,35 @@
   font-weight: bold;
 }
 
+.add-friend-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 202px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 1.2em;
+  background-color: #5857D5;
+  color: white;
+
+}
+
+#AddModal {
+  margin-top: 200px;
+}
+
+#DeleteModal {
+  margin-top: 200px;
+}
+
+.delete-friend-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 202px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 1.2em;
+  background-color: #5857D5;
+  color: white;
+}
