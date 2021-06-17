@@ -38,13 +38,13 @@ class AttemptsController < ApplicationController
       lng: Geocoder.search(@cycle_route.end_point).first.coordinates.second,
       info_window: render_to_string(partial: "info_window", locals: { cycle_route: CycleRoute.new(name: "End Point", description: "Congrats, you finished this route. Go grab a beer to celebrate!") })
     }
-
   end
 
   def finish
     current_user.routes_completed += 1
     @attempt = Attempt.find(params[:id])
     current_user.distance_cycled += @attempt.cycle_route.total_distance
+    @attempt.completed = true
     @attempt.end_time = DateTime.current
     @attempt.save
     current_user.set_badges
