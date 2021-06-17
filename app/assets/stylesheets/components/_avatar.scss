@@ -1,7 +1,7 @@
 .avatar {
   width: 30px;
   border-radius: 50%;
-  border: 3px solid #5857D5;
+  // border: 1px solid #5857D5;
   ;
 }
 .avatar-large {
@@ -24,9 +24,9 @@
 .user {
   left: calc(50% - 40px);
   position: absolute;
-  bottom: 581px;
-  height: 50px;
-  width: 50px;
+  bottom: 594px;
+  height: 40px;
+  width: 40px;
   background-color: #5857D5;
-  margin-left: 169px;
+  margin-left: 179px;
 }
