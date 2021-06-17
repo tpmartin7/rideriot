@@ -40,20 +40,20 @@
   margin: 1rem;
 }
 
-.blue-pill {
+.quiet {
   background-color: $blue-pill;
 }
 
-.red-pill {
+.challenge {
   background-color: $red-pill;
 }
 
-.green-pill {
-  background-color: $green;
+.scenic {
+  background-color: $green-pill;
 }
 
-.orange-pill {
-  background-color: $orange;
+.historic {
+  background-color: $orange-pill;
 }
 
 .tag-selector:checked.blue-pill + label {
