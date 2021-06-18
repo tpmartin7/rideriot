@@ -9,7 +9,7 @@ Review.destroy_all
 RouteTag.destroy_all
 CycleRoute.destroy_all
 Tag.destroy_all
-# User.destroy_all
+User.destroy_all
 Location.destroy_all
 
 
