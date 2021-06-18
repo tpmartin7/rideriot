@@ -2,11 +2,11 @@
   <div class="d-flex justify-content-between pt-4">
     <div class="col-9">
       <p class="h1"> <%= current_user.name  %></p>
-      <p class="user-point-style"> <%= current_user.points %> pts.</p>
+      <p class="user-point-style"> <%= current_user.points %> points</p>
     </div>
   </div>
   <div class="p-2 mb-5 user-trophies">
-    
+
     <div class="achievements d-flex justify-content-between">
       <div class="col-4">
         <%= current_user.bronze == nil ? image_tag("medal (2)-grey.png", size: '80') : image_tag("medal (2).png", size: '80') %>
